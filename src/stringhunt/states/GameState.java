@@ -15,6 +15,7 @@ public class GameState implements ActionListener {
     private JPanel letterPanelObject;
     
     private JButton attackButton;
+    private JButton pauseButton;
     
     private final int X = 300;
     private final int Y = 350;
@@ -46,7 +47,7 @@ public class GameState implements ActionListener {
     }
     
     public void tick() {
-	
+	letterPanelConstructor.tick();
     }
     
     public JPanel getGamePanel() {
@@ -61,7 +62,7 @@ public class GameState implements ActionListener {
 	    //attack event
 	    
 	    //update board
-	    
+	    letterPanelConstructor.updateBoard();
 	}
 	
     }
