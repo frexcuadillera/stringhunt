@@ -14,6 +14,7 @@ public class WordGenerator {
     
     public String[] getNextBoard() {
 	String[] generatedBoard = null;
+	generatedBoard = new String[30];
 	
 	//generate a random letters for testing
 	for(int i = 0; i < 30; i++) {
