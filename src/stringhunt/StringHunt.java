@@ -133,6 +133,7 @@ public class StringHunt implements Runnable {
 	
 	if(state == "game") {
 	    cardLayout.show(cardPanel, "game");
+	    game.tick();
 	}
 	
 	if(state == "menu") {
