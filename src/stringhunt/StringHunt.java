@@ -89,6 +89,7 @@ public class StringHunt implements Runnable {
 	cardPanel.add(creditsPanel, "credits");
 	
 	frame.add(cardPanel);
+	frame.add(canvas);
 	
 	frame.setVisible(true);		
     }
@@ -155,21 +156,21 @@ public class StringHunt implements Runnable {
 
     
     private void render() {
-//	bs = canvas.getBufferStrategy();
-//	
-//	if(bs == null) {
-//	    canvas.createBufferStrategy(3);
-//	    return;
-//	}
-//	
-//	g = bs.getDrawGraphics();
-//	
-//	//clear screen
-//	
-//	g.clearRect(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
-//		
-//	bs.show();
-//	g.dispose();
+	bs = canvas.getBufferStrategy();
+	
+	if(bs == null) {
+	    canvas.createBufferStrategy(3);
+	    return;
+	}
+	
+	g = bs.getDrawGraphics();
+	
+	//clear screen
+	
+	g.clearRect(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
+		
+	bs.show();
+	g.dispose();
 	
     }
 
