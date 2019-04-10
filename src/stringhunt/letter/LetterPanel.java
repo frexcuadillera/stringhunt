@@ -11,7 +11,8 @@ public class LetterPanel implements ActionListener{
     
     private JPanel letterPanel;
     private LetterConverter lc;
-    private String[] letterButtonCharacter;
+    public String[] letterButtonCharacter;
+    private WordGenerator wg;
     
     private JToggleButton btn0;
     private JToggleButton btn1;
@@ -48,13 +49,20 @@ public class LetterPanel implements ActionListener{
     
     public LetterPanel() {
 	
-	letterPanel = new JPanel(new GridLayout(3,10,10,10));
+	letterPanel = new JPanel(new GridLayout(3, 10, 10, 10));
 	lc = new LetterConverter();	
+	wg = new WordGenerator();
 	letterButtonCharacter = new String[30];
 	
-	for(int i = 0; i < 26; i++) {
-	    letterButtonCharacter[i] = lc.getLetter(i);
-	}
+	updateBoard();
+		
+    }
+    
+    public void updateBoard() {
+	
+	letterPanel.removeAll();
+	letterPanel.revalidate();
+	letterButtonCharacter = wg.getNextBoard();
 	
 	btn0 = new JToggleButton(letterButtonCharacter[0]);
 	btn1 = new JToggleButton(letterButtonCharacter[1]);
@@ -88,7 +96,6 @@ public class LetterPanel implements ActionListener{
 	btn27 = new JToggleButton(letterButtonCharacter[27]);
 	btn28 = new JToggleButton(letterButtonCharacter[28]);
 	btn29 = new JToggleButton(letterButtonCharacter[29]);
-	
 	
 	//action listener
 	btn0.addActionListener(this);
@@ -125,6 +132,7 @@ public class LetterPanel implements ActionListener{
 	btn29.addActionListener(this);
 	
 	//add to letter panel
+	
 	letterPanel.add(btn0);
 	letterPanel.add(btn1);
 	letterPanel.add(btn2);
@@ -156,22 +164,25 @@ public class LetterPanel implements ActionListener{
 	letterPanel.add(btn26);
 	letterPanel.add(btn27);
 	letterPanel.add(btn28);
-	letterPanel.add(btn29);
+	letterPanel.add(btn29);		
+
+
+    }
+    
+    public void tick() {
+		
+
     }
     
     public JPanel getLetterPanel() {
 	return letterPanel;
     }
     
-    public void tick() {
-	
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
 	
 	if(btn0.isSelected()) {
-	 //   btn0.setIcon(new ImageIcon(Assets.btn_letters_active[lc.getLetterIndex(letterButtonCharacter[0])]));
+	    System.out.println(letterButtonCharacter[0]);
 	}
 
 	if(btn1.isSelected()) {
