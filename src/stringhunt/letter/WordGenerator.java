@@ -12,7 +12,10 @@ public class WordGenerator {
 	lc = new LetterConverter();
     }
     
-    public String[] getNextBoard() {
+    public String[] getNextBoard(int currentLevel) {
+	
+	//use current level parameter to generate board difficulty
+	
 	String[] generatedBoard = null;
 	generatedBoard = new String[30];
 	

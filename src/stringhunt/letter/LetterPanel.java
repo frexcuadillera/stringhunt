@@ -1,11 +1,11 @@
 package stringhunt.letter;
 
-import javax.swing.*;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import stringhunt.gfx.Assets;
-
-import java.awt.*;
-import java.awt.event.*;
+import javax.swing.JPanel;
+import javax.swing.JToggleButton;
 
 public class LetterPanel implements ActionListener{
     
@@ -54,15 +54,15 @@ public class LetterPanel implements ActionListener{
 	wg = new WordGenerator();
 	letterButtonCharacter = new String[30];
 	
-	updateBoard();
+	updateBoard(1);
 		
     }
     
-    public void updateBoard() {
+    public void updateBoard(int currentLevel) {
 	
 	letterPanel.removeAll();
 	letterPanel.revalidate();
-	letterButtonCharacter = wg.getNextBoard();
+	letterButtonCharacter = wg.getNextBoard(currentLevel);
 	
 	btn0 = new JToggleButton(letterButtonCharacter[0]);
 	btn1 = new JToggleButton(letterButtonCharacter[1]);
