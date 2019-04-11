@@ -1,15 +1,35 @@
 notes:
 
-to do:
+resize the board
+fix positioning of components
 
+to do:
+reset button for board
 player and enemy stats
 player and enemy assets
-board generation
+scene animation
+HP counter/HP updater/HP
+board generation = parameters(current level)
+timer
+game over event
+attack event
+	do damage
+	take damage
+	calculate damage
+	
+pause panel/ pause event
 
-reset button for board
-
-
+word validator
+word damage calculator
 tutorial
 credits
 description
+
+
+optional:
+sounds
+scramble button
+----------------------
+android compilation
+
 
