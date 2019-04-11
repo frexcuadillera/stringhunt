@@ -1,15 +1,20 @@
 package stringhunt;
 
 import java.awt.Canvas;
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 import stringhunt.gfx.Assets;
-import stringhunt.states.*;
+import stringhunt.states.CreditsState;
+import stringhunt.states.DescriptionState;
+import stringhunt.states.GameState;
+import stringhunt.states.MenuState;
+import stringhunt.states.TutorialState;
 
 public class StringHunt implements Runnable {
     
