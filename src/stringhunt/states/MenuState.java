@@ -1,6 +1,5 @@
 package stringhunt.states;
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -74,7 +73,6 @@ public class MenuState implements ActionListener {
 	
 	if(e.getSource() == tutorialButton) {
 	    StringHunt.state = "tutorial";
-	    System.out.println(StringHunt.state);
 	}
 	
 	if(e.getSource() == descriptionButton) {

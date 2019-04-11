@@ -1,6 +1,5 @@
 package stringhunt.states;
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,7 +15,7 @@ public class CreditsState implements ActionListener{
     private JPanel creditsPanel;
     private JButton backButton;    
     private final int BACK_X = 20;
-    private final int BACK_Y = 350;
+    private final int BACK_Y = 500;
     private final int BACK_WIDTH = 200;
     private final int BACK_HEIGHT = 50;
 
