@@ -1,12 +1,6 @@
 package stringhunt.gfx;
 
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.Icon;
 
 public class Assets {
     
