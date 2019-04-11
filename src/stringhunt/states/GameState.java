@@ -2,21 +2,23 @@ package stringhunt.states;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import stringhunt.StringHunt;
-import stringhunt.gamescene.ScenePanel;
 import stringhunt.gfx.Assets;
 import stringhunt.letter.LetterPanel;
 
 public class GameState implements ActionListener {
-    
+   
     private JPanel gamePanel;
     private LetterPanel letterPanelConstructor;
     private JPanel letterPanelObject;
+    public static JTextField textField;
     
     private JButton attackButton;
     private JButton menuButton;
@@ -28,6 +30,12 @@ public class GameState implements ActionListener {
     
     private final int LETTER_PANEL_OBJECT_X = 105;
     private final int LETTER_PANEL_OBJECT_Y = 140;
+    
+    private final int TEXT_FIELD_COLUMNS = 20;
+    private final int TEXT_FIELD_X = 300;
+    private final int TEXT_FIELD_Y = 100;
+    private final int TEXT_FIELD_WIDTH = 200;
+    private final int TEXT_FIELD_HEIGHT = 30;
     
     private int currentLevel = 1;
        
@@ -41,7 +49,9 @@ public class GameState implements ActionListener {
 	letterPanelObject = letterPanelConstructor.getLetterPanel();	
 	letterPanelObject.setBounds(LETTER_PANEL_OBJECT_X, LETTER_PANEL_OBJECT_Y, 590, 170);
 	
-	//scene panel
+	textField = new JTextField(TEXT_FIELD_COLUMNS);
+	textField.setBounds(TEXT_FIELD_X,TEXT_FIELD_Y,TEXT_FIELD_WIDTH,TEXT_FIELD_HEIGHT);
+	textField.setEditable(false);
 	
 	//buttons
 	attackButton = new JButton();
@@ -58,7 +68,7 @@ public class GameState implements ActionListener {
 
 	//add to game panel
 	gamePanel.add(letterPanelObject);
-	gamePanel.add(new ScenePanel());
+	gamePanel.add(textField);
 	gamePanel.add(attackButton);
 	gamePanel.add(menuButton);
     }
@@ -78,7 +88,11 @@ public class GameState implements ActionListener {
 	    System.out.println("attack pressed");
 	    //attack event
 	    
+	    Arrays.fill(letterPanelConstructor.alreadyPressed, false);
+	    
 	    //update board
+	    //do validate entry here
+	    textField.setText(null);
 	    letterPanelConstructor.updateBoard(currentLevel);
 	}
 	
