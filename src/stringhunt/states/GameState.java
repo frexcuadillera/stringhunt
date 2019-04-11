@@ -49,6 +49,7 @@ public class GameState implements ActionListener {
 	letterPanelObject = letterPanelConstructor.getLetterPanel();	
 	letterPanelObject.setBounds(LETTER_PANEL_OBJECT_X, LETTER_PANEL_OBJECT_Y, 590, 170);
 	
+	//text field
 	textField = new JTextField(TEXT_FIELD_COLUMNS);
 	textField.setBounds(TEXT_FIELD_X,TEXT_FIELD_Y,TEXT_FIELD_WIDTH,TEXT_FIELD_HEIGHT);
 	textField.setEditable(false);
@@ -60,6 +61,7 @@ public class GameState implements ActionListener {
 	attackButton.setIcon(new ImageIcon(Assets.btn_attack[0]));
 	attackButton.setPressedIcon(new ImageIcon(Assets.btn_attack[1]));
 	
+	//menubutton
 	menuButton = new JButton();
 	menuButton.addActionListener(this);
 	menuButton.setBounds(X + 250, Y, WIDTH, HEIGHT);
