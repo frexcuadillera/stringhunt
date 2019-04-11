@@ -12,7 +12,7 @@ public class LetterPanel implements ActionListener{
     private JPanel letterPanel;
     private LetterConverter lc;
     public String[] letterButtonCharacter;
-    private WordGenerator wg;
+    private BoardGenerator bg;
     
     private JToggleButton btn0;
     private JToggleButton btn1;
@@ -51,7 +51,7 @@ public class LetterPanel implements ActionListener{
 	
 	letterPanel = new JPanel(new GridLayout(3, 10, 10, 10));
 	lc = new LetterConverter();	
-	wg = new WordGenerator();
+	bg = new BoardGenerator();
 	letterButtonCharacter = new String[30];
 	
 	updateBoard(1);
@@ -62,7 +62,7 @@ public class LetterPanel implements ActionListener{
 	
 	letterPanel.removeAll();
 	letterPanel.revalidate();
-	letterButtonCharacter = wg.getNextBoard(currentLevel);
+	letterButtonCharacter = bg.getNextBoard(currentLevel);
 	
 	btn0 = new JToggleButton(letterButtonCharacter[0]);
 	btn1 = new JToggleButton(letterButtonCharacter[1]);
