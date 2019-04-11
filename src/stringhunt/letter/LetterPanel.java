@@ -7,12 +7,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
+import stringhunt.states.GameState;
+
 public class LetterPanel implements ActionListener{
     
     private JPanel letterPanel;
     private LetterConverter lc;
     public String[] letterButtonCharacter;
     private BoardGenerator bg;
+    public boolean[] alreadyPressed;
     
     private JToggleButton btn0;
     private JToggleButton btn1;
@@ -53,6 +56,7 @@ public class LetterPanel implements ActionListener{
 	lc = new LetterConverter();	
 	bg = new BoardGenerator();
 	letterButtonCharacter = new String[30];
+	alreadyPressed = new boolean[30];
 	
 	updateBoard(1);
 		
@@ -181,128 +185,158 @@ public class LetterPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 	
-	if(btn0.isSelected()) {
-	    System.out.println(letterButtonCharacter[0]);
+	if(btn0.isSelected() && !alreadyPressed[0]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[0]));
+	    alreadyPressed[0] = true;
 	}
 
-	if(btn1.isSelected()) {
-	
+	if(btn1.isSelected() && !alreadyPressed[1]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[1]));
+	    alreadyPressed[1] = true;
 	}
 	
-	if(btn2.isSelected()) {
-	    
+	if(btn2.isSelected() && !alreadyPressed[2]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[2]));
+	    alreadyPressed[2] = true;
 	}
 	
-	if(btn3.isSelected()) {
-	    
+	if(btn3.isSelected() && !alreadyPressed[3]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[3]));
+	    alreadyPressed[3] = true;
 	}
 	
-	if(btn4.isSelected()) {
-	    
+	if(btn4.isSelected() && !alreadyPressed[4]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[4]));  
+	    alreadyPressed[4] = true;
 	}
 	
-	if(btn5.isSelected()) {
-	    
+	if(btn5.isSelected() && !alreadyPressed[5]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[5]));  
+	    alreadyPressed[5] = true;
 	}
 	
-	if(btn6.isSelected()) {
-	    
+	if(btn6.isSelected() && !alreadyPressed[6]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[6]));  
+	    alreadyPressed[6] = true;
 	}
 	
-	if(btn7.isSelected()) {
-	    
+	if(btn7.isSelected() && !alreadyPressed[7]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[7])); 
+	    alreadyPressed[7] = true;
 	}
 	
-	if(btn8.isSelected()) {
-	    
+	if(btn8.isSelected() && !alreadyPressed[8]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[8])); 
+	    alreadyPressed[8] = true;
 	}
 	
-	if(btn9.isSelected()) {
-	    
+	if(btn9.isSelected() && !alreadyPressed[9]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[9]));  
+	    alreadyPressed[9] = true;
 	}
 	
 	//10
 	
-	if(btn10.isSelected()) {
-	    
+	if(btn10.isSelected() && !alreadyPressed[10]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[10]));  
+	    alreadyPressed[10] = true;
 	}
 	
-	if(btn11.isSelected()) {
-	    
+	if(btn11.isSelected() && !alreadyPressed[11]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[11])); 
+	    alreadyPressed[11] = true;
 	}
 	
-	if(btn12.isSelected()) {
-	    
+	if(btn12.isSelected() && !alreadyPressed[12]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[12])); 
+	    alreadyPressed[12] = true;
 	}
 	
-	if(btn13.isSelected()) {
-	    
+	if(btn13.isSelected() && !alreadyPressed[13]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[13]));
+	    alreadyPressed[13] = true;
 	}
 	
-	if(btn14.isSelected()) {
-	    
+	if(btn14.isSelected() && !alreadyPressed[14]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[14]));   
+	    alreadyPressed[14] = true;
 	}
 	
-	if(btn15.isSelected()) {
-	    
+	if(btn15.isSelected() && !alreadyPressed[15]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[15]));
+	    alreadyPressed[15] = true;
 	}
 	
-	if(btn16.isSelected()) {
-	    
+	if(btn16.isSelected() && !alreadyPressed[16]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[16])); 
+	    alreadyPressed[16] = true;
 	}
 	
-	if(btn17.isSelected()) {
-	    
+	if(btn17.isSelected() && !alreadyPressed[17]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[17]));
+	    alreadyPressed[17] = true;
 	}
 	
-	if(btn18.isSelected()) {
-	    
+	if(btn18.isSelected() && !alreadyPressed[18]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[18]));
+	    alreadyPressed[18] = true;
 	}
 	
-	if(btn19.isSelected()) {
-	    
+	if(btn19.isSelected() && !alreadyPressed[19]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[19])); 
+	    alreadyPressed[19] = true;
 	}
 	
 	//20
 	
-	if(btn20.isSelected()) {
-	    
+	if(btn20.isSelected() && !alreadyPressed[20]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[20]));
+	    alreadyPressed[20] = true;
 	}
 	
-	if(btn21.isSelected()) {
-	    
+	if(btn21.isSelected() && !alreadyPressed[21]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[21])); 
+	    alreadyPressed[21] = true;
 	}
 	
-	if(btn22.isSelected()) {
-	    
+	if(btn22.isSelected() && !alreadyPressed[22]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[22]));
+	    alreadyPressed[22] = true;
 	}
 	
-	if(btn23.isSelected()) {
-	    
+	if(btn23.isSelected() && !alreadyPressed[23]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[23])); 
+	    alreadyPressed[23] = true;
 	}
 	
-	if(btn24.isSelected()) {
-	    
+	if(btn24.isSelected() && !alreadyPressed[24]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[24])); 
+	    alreadyPressed[24] = true;
 	}
 	
-	if(btn25.isSelected()) {
-	    
+	if(btn25.isSelected() && !alreadyPressed[25]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[25])); 
+	    alreadyPressed[25] = true;
 	}
 	
-	if(btn26.isSelected()) {
-	    
+	if(btn26.isSelected() && !alreadyPressed[26]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[26]));
+	    alreadyPressed[26] = true;
 	}
 	
-	if(btn27.isSelected()) {
-	    
+	if(btn27.isSelected() && !alreadyPressed[27]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[27]));  
+	    alreadyPressed[27] = true;
 	}
 	
-	if(btn28.isSelected()) {
-	    
+	if(btn28.isSelected() && !alreadyPressed[28]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[28])); 
+	    alreadyPressed[28] = true;
 	}
 	
-	if(btn29.isSelected()) {
-	    
+	if(btn29.isSelected() && !alreadyPressed[29]) {
+	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[29]));
+	    alreadyPressed[29] = true;
 	}
 	
     }
