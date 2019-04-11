@@ -1,13 +1,15 @@
 package stringhunt.states;
 
-import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 import stringhunt.StringHunt;
 import stringhunt.gfx.Assets;
 import stringhunt.letter.LetterPanel;
-
-import java.awt.event.*;
-import java.awt.*;
 
 public class GameState implements ActionListener {
     
@@ -26,7 +28,8 @@ public class GameState implements ActionListener {
     private final int LETTER_PANEL_OBJECT_X = 105;
     private final int LETTER_PANEL_OBJECT_Y = 140;
     
-    
+    private int currentLevel = 1;
+       
     public GameState() {
 	gamePanel = new JPanel();
 	gamePanel.setLayout(null);
@@ -53,7 +56,6 @@ public class GameState implements ActionListener {
 	gamePanel.add(letterPanelObject);
 	gamePanel.add(attackButton);
 	gamePanel.add(menuButton);
-	System.out.println("entered game frame");
     }
     
     public void tick() {
@@ -72,11 +74,11 @@ public class GameState implements ActionListener {
 	    //attack event
 	    
 	    //update board
-	    letterPanelConstructor.updateBoard();
+	    letterPanelConstructor.updateBoard(currentLevel);
 	}
 	
 	if(e.getSource() == menuButton) {
-	    StringHunt.state = "menu"; // temp. goto menu
+	    StringHunt.state = "menu"; // temp goto menu
 	    //do pause event here
 	    
 	}
