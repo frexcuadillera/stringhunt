@@ -24,16 +24,16 @@ public class GameState implements ActionListener {
     private JButton menuButton;
     
     private final int X = 300;
-    private final int Y = 350;
+    private final int Y = 500;
     private final int WIDTH = 200;
     private final int HEIGHT = 50;
     
     private final int LETTER_PANEL_OBJECT_X = 105;
-    private final int LETTER_PANEL_OBJECT_Y = 140;
+    private final int LETTER_PANEL_OBJECT_Y = 280;
     
     private final int TEXT_FIELD_COLUMNS = 20;
     private final int TEXT_FIELD_X = 300;
-    private final int TEXT_FIELD_Y = 100;
+    private final int TEXT_FIELD_Y = 220;
     private final int TEXT_FIELD_WIDTH = 200;
     private final int TEXT_FIELD_HEIGHT = 30;
     
@@ -42,7 +42,7 @@ public class GameState implements ActionListener {
     public GameState() {
 	gamePanel = new JPanel();
 	gamePanel.setLayout(null);
-	gamePanel.setBounds(0, 0, 800, 450);
+	gamePanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
 	
 	//letter panel
 	letterPanelConstructor = new LetterPanel();

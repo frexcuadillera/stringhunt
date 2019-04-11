@@ -25,11 +25,10 @@ public class DescriptionState implements ActionListener{
 	
 	descriptionPanel = new JPanel();
 	descriptionPanel.setLayout(null);
-	descriptionPanel.setBounds(0 , 0, 800, 350);
+	descriptionPanel.setBounds(0 , 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
 	
 	backButton = new JButton();		
 	backButton.setBounds(BACK_X, BACK_Y, BACK_WIDTH, BACK_HEIGHT);
-	backButton.setPreferredSize(new Dimension(200, 50));
 	backButton.setIcon(new ImageIcon(Assets.btn_back[0]));
 	backButton.setPressedIcon(new ImageIcon(Assets.btn_back[1]));
 	

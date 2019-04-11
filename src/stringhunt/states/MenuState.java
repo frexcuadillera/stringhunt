@@ -43,11 +43,6 @@ public class MenuState implements ActionListener {
 	descriptionButton.setBounds(X_POSITION, Y_POSITION + Y_OFFSET * 2, BUTTON_WIDTH, BUTTON_HEIGHT);
 	creditsButton.setBounds(X_POSITION, Y_POSITION + Y_OFFSET * 3, BUTTON_WIDTH, BUTTON_HEIGHT);
 	
-	startButton.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
-	tutorialButton.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
-	descriptionButton.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
-	creditsButton.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
-	
 	startButton.setIcon(new ImageIcon(Assets.btn_start[0]));
 	tutorialButton.setIcon(new ImageIcon(Assets.btn_tutorial[0]));
 	descriptionButton.setIcon(new ImageIcon(Assets.btn_description[0]));
