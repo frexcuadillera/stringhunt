@@ -174,6 +174,7 @@ public class StringHunt implements Runnable {
 	//clear screen
 	
 	g.clearRect(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
+	
 		
 	bs.show();
 	g.dispose();
