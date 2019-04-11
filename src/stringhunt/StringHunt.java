@@ -42,8 +42,8 @@ public class StringHunt implements Runnable {
     private Thread thread;
     private boolean running = false;
     
-    private int FRAME_WIDTH = 800;
-    private int FRAME_HEIGHT = 450;
+    public static final int FRAME_WIDTH = 800;
+    public static final int FRAME_HEIGHT = 600;
     public static String state = "menu";
     
     //testing
@@ -85,7 +85,7 @@ public class StringHunt implements Runnable {
 	//card layout testing
 	cardPanel = new JPanel();
 	cardPanel.setLayout(cardLayout);
-	cardPanel.setBounds(0,0,800,450);
+	cardPanel.setBounds(0, 0, FRAME_WIDTH, FRAME_HEIGHT);
 	
 	cardPanel.add(gamePanel, "game");
 	cardPanel.add(menuPanel, "menu");
@@ -106,7 +106,6 @@ public class StringHunt implements Runnable {
 	long now;
 	long lastTime = System.nanoTime();
 	long timer = 0;
-	int ticks = 0;
 	
 	while(running) {
 	    
@@ -118,13 +117,10 @@ public class StringHunt implements Runnable {
 	    if (delta >= 1) {
 		tick();
 		render();
-		ticks++;
 		delta--;
 	    }
 	    
 	    if(timer >= 100000000) {
-		//System.out.println("Ticks and Frames: " + ticks);
-		ticks = 0;
 		timer = 0;
 	    }
 	    
