@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import stringhunt.StringHunt;
+import stringhunt.gamescene.ScenePanel;
 import stringhunt.gfx.Assets;
 import stringhunt.letter.LetterPanel;
 
@@ -35,9 +36,12 @@ public class GameState implements ActionListener {
 	gamePanel.setLayout(null);
 	gamePanel.setBounds(0, 0, 800, 450);
 	
+	//letter panel
 	letterPanelConstructor = new LetterPanel();
 	letterPanelObject = letterPanelConstructor.getLetterPanel();	
 	letterPanelObject.setBounds(LETTER_PANEL_OBJECT_X, LETTER_PANEL_OBJECT_Y, 590, 170);
+	
+	//scene panel
 	
 	//buttons
 	attackButton = new JButton();
@@ -54,6 +58,7 @@ public class GameState implements ActionListener {
 
 	//add to game panel
 	gamePanel.add(letterPanelObject);
+	gamePanel.add(new ScenePanel());
 	gamePanel.add(attackButton);
 	gamePanel.add(menuButton);
     }
@@ -61,7 +66,7 @@ public class GameState implements ActionListener {
     public void tick() {
 	letterPanelConstructor.tick();
     }
-    
+        
     public JPanel getGamePanel() {
         return gamePanel;
     }
