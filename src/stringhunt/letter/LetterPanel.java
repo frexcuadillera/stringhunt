@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
@@ -17,38 +18,38 @@ public class LetterPanel implements ActionListener{
     private BoardGenerator bg;
     public boolean[] alreadyPressed;
     
-    private JToggleButton btn0;
-    private JToggleButton btn1;
-    private JToggleButton btn2;
-    private JToggleButton btn3;
-    private JToggleButton btn4;
-    private JToggleButton btn5;
-    private JToggleButton btn6;
-    private JToggleButton btn7;
-    private JToggleButton btn8;
-    private JToggleButton btn9;
+    private JButton btn0;
+    private JButton btn1;
+    private JButton btn2;
+    private JButton btn3;
+    private JButton btn4;
+    private JButton btn5;
+    private JButton btn6;
+    private JButton btn7;
+    private JButton btn8;
+    private JButton btn9;
     
-    private JToggleButton btn10;
-    private JToggleButton btn11;
-    private JToggleButton btn12;
-    private JToggleButton btn13;
-    private JToggleButton btn14;
-    private JToggleButton btn15;
-    private JToggleButton btn16;
-    private JToggleButton btn17;
-    private JToggleButton btn18;
-    private JToggleButton btn19;
+    private JButton btn10;
+    private JButton btn11;
+    private JButton btn12;
+    private JButton btn13;
+    private JButton btn14;
+    private JButton btn15;
+    private JButton btn16;
+    private JButton btn17;
+    private JButton btn18;
+    private JButton btn19;
     
-    private JToggleButton btn20;
-    private JToggleButton btn21;
-    private JToggleButton btn22;
-    private JToggleButton btn23;
-    private JToggleButton btn24;
-    private JToggleButton btn25;
-    private JToggleButton btn26;
-    private JToggleButton btn27;
-    private JToggleButton btn28;
-    private JToggleButton btn29;
+    private JButton btn20;
+    private JButton btn21;
+    private JButton btn22;
+    private JButton btn23;
+    private JButton btn24;
+    private JButton btn25;
+    private JButton btn26;
+    private JButton btn27;
+    private JButton btn28;
+    private JButton btn29;
     
     public LetterPanel() {
 	
@@ -68,38 +69,38 @@ public class LetterPanel implements ActionListener{
 	letterPanel.revalidate();
 	letterButtonCharacter = bg.getNextBoard(currentLevel);
 	
-	btn0 = new JToggleButton(letterButtonCharacter[0]);
-	btn1 = new JToggleButton(letterButtonCharacter[1]);
-	btn2 = new JToggleButton(letterButtonCharacter[2]);
-	btn3 = new JToggleButton(letterButtonCharacter[3]);
-	btn4 = new JToggleButton(letterButtonCharacter[4]);
-	btn5 = new JToggleButton(letterButtonCharacter[5]);
-	btn6 = new JToggleButton(letterButtonCharacter[6]);
-	btn7 = new JToggleButton(letterButtonCharacter[7]);
-	btn8 = new JToggleButton(letterButtonCharacter[8]);
-	btn9 = new JToggleButton(letterButtonCharacter[9]);
-	
-	btn10 = new JToggleButton(letterButtonCharacter[10]);
-	btn11 = new JToggleButton(letterButtonCharacter[11]);
-	btn12 = new JToggleButton(letterButtonCharacter[12]);
-	btn13 = new JToggleButton(letterButtonCharacter[13]);
-	btn14 = new JToggleButton(letterButtonCharacter[14]);
-	btn15 = new JToggleButton(letterButtonCharacter[15]);
-	btn16 = new JToggleButton(letterButtonCharacter[16]);
-	btn17 = new JToggleButton(letterButtonCharacter[17]);
-	btn18 = new JToggleButton(letterButtonCharacter[18]);
-	btn19 = new JToggleButton(letterButtonCharacter[19]);		
-	
-	btn20 = new JToggleButton(letterButtonCharacter[20]);
-	btn21 = new JToggleButton(letterButtonCharacter[21]);
-	btn22 = new JToggleButton(letterButtonCharacter[22]);
-	btn23 = new JToggleButton(letterButtonCharacter[23]);
-	btn24 = new JToggleButton(letterButtonCharacter[24]);
-	btn25 = new JToggleButton(letterButtonCharacter[25]);
-	btn26 = new JToggleButton(letterButtonCharacter[26]);
-	btn27 = new JToggleButton(letterButtonCharacter[27]);
-	btn28 = new JToggleButton(letterButtonCharacter[28]);
-	btn29 = new JToggleButton(letterButtonCharacter[29]);
+	btn0 = new JButton(letterButtonCharacter[0]);
+	btn1 = new JButton(letterButtonCharacter[1]);
+	btn2 = new JButton(letterButtonCharacter[2]);
+	btn3 = new JButton(letterButtonCharacter[3]);
+	btn4 = new JButton(letterButtonCharacter[4]);
+	btn5 = new JButton(letterButtonCharacter[5]);
+	btn6 = new JButton(letterButtonCharacter[6]);
+	btn7 = new JButton(letterButtonCharacter[7]);
+	btn8 = new JButton(letterButtonCharacter[8]);
+	btn9 = new JButton(letterButtonCharacter[9]);
+	    
+	btn10 = new JButton(letterButtonCharacter[10]);
+	btn11 = new JButton(letterButtonCharacter[11]);
+	btn12 = new JButton(letterButtonCharacter[12]);
+	btn13 = new JButton(letterButtonCharacter[13]);
+	btn14 = new JButton(letterButtonCharacter[14]);
+	btn15 = new JButton(letterButtonCharacter[15]);
+	btn16 = new JButton(letterButtonCharacter[16]);
+	btn17 = new JButton(letterButtonCharacter[17]);
+	btn18 = new JButton(letterButtonCharacter[18]);
+	btn19 = new JButton(letterButtonCharacter[19]);       
+	    
+	btn20 = new JButton(letterButtonCharacter[20]);
+	btn21 = new JButton(letterButtonCharacter[21]);
+	btn22 = new JButton(letterButtonCharacter[22]);
+	btn23 = new JButton(letterButtonCharacter[23]);
+	btn24 = new JButton(letterButtonCharacter[24]);
+	btn25 = new JButton(letterButtonCharacter[25]);
+	btn26 = new JButton(letterButtonCharacter[26]);
+	btn27 = new JButton(letterButtonCharacter[27]);
+	btn28 = new JButton(letterButtonCharacter[28]);
+	btn29 = new JButton(letterButtonCharacter[29]);
 	
 	//action listener
 	btn0.addActionListener(this);
@@ -185,159 +186,196 @@ public class LetterPanel implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 	
-	if(btn0.isSelected() && !alreadyPressed[0]) {
+	if(e.getSource() == btn0 && !alreadyPressed[0]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[0]));
 	    alreadyPressed[0] = true;
+	    btn0.setVisible(false);
 	}
 
-	if(btn1.isSelected() && !alreadyPressed[1]) {
+	if(e.getSource() == btn1 && !alreadyPressed[1]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[1]));
 	    alreadyPressed[1] = true;
+	    btn1.setVisible(false);
 	}
 	
-	if(btn2.isSelected() && !alreadyPressed[2]) {
+	if(e.getSource() == btn2 && !alreadyPressed[2]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[2]));
 	    alreadyPressed[2] = true;
+	    btn2.setVisible(false);
 	}
 	
-	if(btn3.isSelected() && !alreadyPressed[3]) {
+	if(e.getSource() == btn3 && !alreadyPressed[3]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[3]));
 	    alreadyPressed[3] = true;
+	    btn3.setVisible(false);
 	}
 	
-	if(btn4.isSelected() && !alreadyPressed[4]) {
+	if(e.getSource() == btn4 && !alreadyPressed[4]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[4]));  
 	    alreadyPressed[4] = true;
+	    btn4.setVisible(false);
 	}
 	
-	if(btn5.isSelected() && !alreadyPressed[5]) {
+	if(e.getSource() == btn5 && !alreadyPressed[5]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[5]));  
 	    alreadyPressed[5] = true;
+	    btn5.setVisible(false);
 	}
 	
-	if(btn6.isSelected() && !alreadyPressed[6]) {
+	if(e.getSource() == btn6 && !alreadyPressed[6]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[6]));  
 	    alreadyPressed[6] = true;
+	    btn6.setVisible(false);
 	}
 	
-	if(btn7.isSelected() && !alreadyPressed[7]) {
+	if(e.getSource() == btn7 && !alreadyPressed[7]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[7])); 
 	    alreadyPressed[7] = true;
+	    btn7.setVisible(false);
 	}
 	
-	if(btn8.isSelected() && !alreadyPressed[8]) {
+	if(e.getSource() == btn8 && !alreadyPressed[8]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[8])); 
 	    alreadyPressed[8] = true;
+	    btn8.setVisible(false);
 	}
 	
-	if(btn9.isSelected() && !alreadyPressed[9]) {
+	if(e.getSource() == btn9 && !alreadyPressed[9]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[9]));  
 	    alreadyPressed[9] = true;
+	    btn9.setVisible(false);
 	}
 	
 	//10
 	
-	if(btn10.isSelected() && !alreadyPressed[10]) {
+	if(e.getSource() == btn10 && !alreadyPressed[10]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[10]));  
 	    alreadyPressed[10] = true;
+	    btn10.setVisible(false);
 	}
 	
-	if(btn11.isSelected() && !alreadyPressed[11]) {
+	if(e.getSource() == btn11 && !alreadyPressed[11]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[11])); 
 	    alreadyPressed[11] = true;
+	    btn11.setVisible(false);
 	}
 	
-	if(btn12.isSelected() && !alreadyPressed[12]) {
+	if(e.getSource() == btn12 && !alreadyPressed[12]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[12])); 
 	    alreadyPressed[12] = true;
+	    btn12.setVisible(false);
 	}
 	
-	if(btn13.isSelected() && !alreadyPressed[13]) {
+	if(e.getSource() == btn13 && !alreadyPressed[13]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[13]));
 	    alreadyPressed[13] = true;
+	    btn13.setVisible(false);
 	}
 	
-	if(btn14.isSelected() && !alreadyPressed[14]) {
+	if(e.getSource() == btn14 && !alreadyPressed[14]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[14]));   
 	    alreadyPressed[14] = true;
+	    btn14.setVisible(false);
 	}
 	
-	if(btn15.isSelected() && !alreadyPressed[15]) {
+	if(e.getSource() == btn15 && !alreadyPressed[15]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[15]));
 	    alreadyPressed[15] = true;
+	    btn15.setVisible(false);
 	}
 	
-	if(btn16.isSelected() && !alreadyPressed[16]) {
+	if(e.getSource() == btn16 && !alreadyPressed[16]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[16])); 
 	    alreadyPressed[16] = true;
+	    btn16.setVisible(false);
 	}
 	
-	if(btn17.isSelected() && !alreadyPressed[17]) {
+	if(e.getSource() == btn17 && !alreadyPressed[17]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[17]));
 	    alreadyPressed[17] = true;
+	    btn17.setVisible(false);
 	}
 	
-	if(btn18.isSelected() && !alreadyPressed[18]) {
+	if(e.getSource() == btn18 && !alreadyPressed[18]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[18]));
 	    alreadyPressed[18] = true;
+	    btn18.setVisible(false);
 	}
 	
-	if(btn19.isSelected() && !alreadyPressed[19]) {
+	if(e.getSource() == btn19 && !alreadyPressed[19]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[19])); 
 	    alreadyPressed[19] = true;
+	    btn19.setVisible(false);
 	}
 	
 	//20
 	
-	if(btn20.isSelected() && !alreadyPressed[20]) {
+	if(e.getSource() == btn20 && !alreadyPressed[20]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[20]));
 	    alreadyPressed[20] = true;
+	    btn20.setVisible(false);
 	}
 	
-	if(btn21.isSelected() && !alreadyPressed[21]) {
+	if(e.getSource() == btn21 && !alreadyPressed[21]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[21])); 
 	    alreadyPressed[21] = true;
+	    btn21.setVisible(false);
 	}
 	
-	if(btn22.isSelected() && !alreadyPressed[22]) {
+	if(e.getSource() == btn22 && !alreadyPressed[22]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[22]));
 	    alreadyPressed[22] = true;
+	    btn22.setVisible(false);
 	}
 	
-	if(btn23.isSelected() && !alreadyPressed[23]) {
+	if(e.getSource() == btn23 && !alreadyPressed[23]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[23])); 
 	    alreadyPressed[23] = true;
+	    btn23.setVisible(false);
 	}
 	
-	if(btn24.isSelected() && !alreadyPressed[24]) {
+	if(e.getSource() == btn24 && !alreadyPressed[24]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[24])); 
 	    alreadyPressed[24] = true;
+	    btn24.setVisible(false);
 	}
 	
-	if(btn25.isSelected() && !alreadyPressed[25]) {
+	if(e.getSource() == btn25 && !alreadyPressed[25]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[25])); 
 	    alreadyPressed[25] = true;
+	    btn25.setVisible(false);
 	}
 	
-	if(btn26.isSelected() && !alreadyPressed[26]) {
+	if(e.getSource() == btn26 && !alreadyPressed[26]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[26]));
 	    alreadyPressed[26] = true;
+	    btn26.setVisible(false);
 	}
 	
-	if(btn27.isSelected() && !alreadyPressed[27]) {
+	if(e.getSource() == btn27 && !alreadyPressed[27]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[27]));  
 	    alreadyPressed[27] = true;
+	    btn27.setVisible(false);
 	}
 	
-	if(btn28.isSelected() && !alreadyPressed[28]) {
+	if(e.getSource() == btn28 && !alreadyPressed[28]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[28])); 
 	    alreadyPressed[28] = true;
+	    btn28.setVisible(false);
 	}
 	
-	if(btn29.isSelected() && !alreadyPressed[29]) {
+	if(e.getSource() == btn29 && !alreadyPressed[29]) {
 	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[29]));
 	    alreadyPressed[29] = true;
+	    btn29.setVisible(false);
 	}
+	
+	/**
+	 * untoggle events 
+	 * update the textfield
+	 * remove the letter to the queue word
+	 * 
+	 */
 	
     }
     
