@@ -20,6 +20,7 @@ public class GameState implements ActionListener {
     private JPanel letterPanelObject;
     public static JTextField textField;
     
+    private JButton resetButton;
     private JButton attackButton;
     private JButton menuButton;
     
@@ -54,7 +55,14 @@ public class GameState implements ActionListener {
 	textField.setBounds(TEXT_FIELD_X,TEXT_FIELD_Y,TEXT_FIELD_WIDTH,TEXT_FIELD_HEIGHT);
 	textField.setEditable(false);
 	
-	//buttons
+	//reset button
+	resetButton = new JButton();
+	resetButton.addActionListener(this);
+	resetButton.setBounds(X - 250, Y, WIDTH, HEIGHT);
+	resetButton.setIcon(new ImageIcon(Assets.btn_reset[0]));
+	resetButton.setPressedIcon(new ImageIcon(Assets.btn_reset[1]));
+	
+	//attack button
 	attackButton = new JButton();
 	attackButton.addActionListener(this);
 	attackButton.setBounds(X, Y, WIDTH, HEIGHT);
@@ -71,6 +79,7 @@ public class GameState implements ActionListener {
 	//add to game panel
 	gamePanel.add(letterPanelObject);
 	gamePanel.add(textField);
+	gamePanel.add(resetButton);
 	gamePanel.add(attackButton);
 	gamePanel.add(menuButton);
     }
@@ -85,6 +94,12 @@ public class GameState implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+	
+	if(e.getSource() == resetButton) {
+	    System.out.println("reset pressed");
+	    textField.setText(null);
+	    letterPanelConstructor.resetBoard();
+	}
 	
 	if(e.getSource() == attackButton) {
 	    System.out.println("attack pressed");
