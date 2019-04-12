@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 
 public class Assets {
     
-    public static BufferedImage background;
+    public static BufferedImage background; //unused
     public static BufferedImage[] btn_start;
     public static BufferedImage[] btn_tutorial;
     public static BufferedImage[] btn_description;
@@ -15,7 +15,7 @@ public class Assets {
     //game assets
     public static BufferedImage[] btn_attack;
     public static BufferedImage[] btn_menu;
-    public static BufferedImage[] btn_reset; //test
+    public static BufferedImage[] btn_reset;
     
     //
     public static BufferedImage[] btn_letters;
