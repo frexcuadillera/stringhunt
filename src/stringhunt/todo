@@ -5,7 +5,9 @@ fix positioning of components
 background of the game
 
 to do:
-reset button for board
+word validator
+word damage calculator
+
 player and enemy stats
 player and enemy assets
 scene animation
@@ -20,8 +22,6 @@ attack event
 	
 pause panel/ pause event
 
-word validator
-word damage calculator
 tutorial
 credits
 description
