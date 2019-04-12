@@ -3,10 +3,10 @@ package stringhunt.letter;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.JToggleButton;
 
 import stringhunt.states.GameState;
 
@@ -181,6 +181,45 @@ public class LetterPanel implements ActionListener{
     
     public JPanel getLetterPanel() {
 	return letterPanel;
+    }
+    
+    public void resetBoard() {
+	bg.getCurrentBoard();
+	
+	Arrays.fill(alreadyPressed, false);
+	
+	btn0.setVisible(true);
+	btn1.setVisible(true);
+	btn2.setVisible(true);
+	btn3.setVisible(true);
+	btn4.setVisible(true);
+	btn5.setVisible(true);
+	btn6.setVisible(true);
+	btn7.setVisible(true);
+	btn8.setVisible(true);
+	btn9.setVisible(true);
+	
+	btn10.setVisible(true);
+	btn11.setVisible(true);
+	btn12.setVisible(true);
+	btn13.setVisible(true);
+	btn14.setVisible(true);
+	btn15.setVisible(true);
+	btn16.setVisible(true);
+	btn17.setVisible(true);
+	btn18.setVisible(true);
+	btn19.setVisible(true);
+	
+	btn20.setVisible(true);
+	btn21.setVisible(true);
+	btn22.setVisible(true);
+	btn23.setVisible(true);
+	btn24.setVisible(true);
+	btn25.setVisible(true);
+	btn26.setVisible(true);
+	btn27.setVisible(true);
+	btn28.setVisible(true);
+	btn29.setVisible(true);
     }
     
     @Override
@@ -369,15 +408,7 @@ public class LetterPanel implements ActionListener{
 	    alreadyPressed[29] = true;
 	    btn29.setVisible(false);
 	}
-	
-	/**
-	 * untoggle events 
-	 * update the textfield
-	 * remove the letter to the queue word
-	 * 
-	 */
-	
+		
     }
-    
     
 }
