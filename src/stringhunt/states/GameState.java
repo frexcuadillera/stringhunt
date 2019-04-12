@@ -220,6 +220,19 @@ public class GameState implements ActionListener {
 	    }
 	    
 	    if(currentEnemyHealth <= 0) {
+		
+		currentEnemy++;
+		
+		if(currentEnemy > 5) {
+		    currentLevel++;
+		    currentEnemy = 1;
+		}
+		
+		if(currentLevel > 5) {
+		    //game over, you win!
+		    System.out.println("graduate");
+		}
+		
 		enemyHealthLabel.setText("0/10 HP");
 		System.out.println("enemy defeated");
 	    }
