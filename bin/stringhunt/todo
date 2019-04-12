@@ -5,23 +5,17 @@ fix positioning of components
 background of the game
 
 to do:
-reset button for board
+word validator
+
 player and enemy stats
 player and enemy assets
 scene animation
-HP counter/HP updater/HP
 board generation = parameters(current level)
 timer
 game over event
-attack event
-	do damage
-	take damage
-	calculate damage
 	
 pause panel/ pause event
 
-word validator
-word damage calculator
 tutorial
 credits
 description
