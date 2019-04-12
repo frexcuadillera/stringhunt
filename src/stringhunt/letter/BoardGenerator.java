@@ -33,5 +33,5 @@ public class BoardGenerator {
     public String[] getCurrentBoard() {
 	return currentBoard;
     }
-
+    
 }
