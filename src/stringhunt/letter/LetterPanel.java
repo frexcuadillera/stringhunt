@@ -1,5 +1,7 @@
 package stringhunt.letter;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +15,6 @@ import stringhunt.states.GameState;
 public class LetterPanel implements ActionListener{
     
     private JPanel letterPanel;
-    private LetterConverter lc;
     public String[] letterButtonCharacter;
     private BoardGenerator bg;
     public boolean[] alreadyPressed;
@@ -54,7 +55,7 @@ public class LetterPanel implements ActionListener{
     public LetterPanel() {
 	
 	letterPanel = new JPanel(new GridLayout(3, 10, 10, 10));
-	lc = new LetterConverter();	
+	letterPanel.setBackground(Color.decode("#ACFFFF"));
 	bg = new BoardGenerator();
 	letterButtonCharacter = new String[30];
 	alreadyPressed = new boolean[30];
@@ -101,6 +102,111 @@ public class LetterPanel implements ActionListener{
 	btn27 = new JButton(letterButtonCharacter[27]);
 	btn28 = new JButton(letterButtonCharacter[28]);
 	btn29 = new JButton(letterButtonCharacter[29]);
+	
+	//color
+	btn0.setBackground(Color.decode("#3D85C6"));
+	btn1.setBackground(Color.decode("#3D85C6"));
+	btn2.setBackground(Color.decode("#3D85C6"));
+	btn3.setBackground(Color.decode("#3D85C6"));
+	btn4.setBackground(Color.decode("#3D85C6"));
+	btn5.setBackground(Color.decode("#3D85C6"));
+	btn6.setBackground(Color.decode("#3D85C6"));
+	btn7.setBackground(Color.decode("#3D85C6"));
+	btn8.setBackground(Color.decode("#3D85C6"));
+	btn9.setBackground(Color.decode("#3D85C6"));
+	
+	btn10.setBackground(Color.decode("#3D85C6"));
+	btn11.setBackground(Color.decode("#3D85C6"));
+	btn12.setBackground(Color.decode("#3D85C6"));
+	btn13.setBackground(Color.decode("#3D85C6"));
+	btn14.setBackground(Color.decode("#3D85C6"));
+	btn15.setBackground(Color.decode("#3D85C6"));
+	btn16.setBackground(Color.decode("#3D85C6"));
+	btn17.setBackground(Color.decode("#3D85C6"));
+	btn18.setBackground(Color.decode("#3D85C6"));
+	btn19.setBackground(Color.decode("#3D85C6"));
+	
+	btn20.setBackground(Color.decode("#3D85C6"));
+	btn21.setBackground(Color.decode("#3D85C6"));
+	btn22.setBackground(Color.decode("#3D85C6"));
+	btn23.setBackground(Color.decode("#3D85C6"));
+	btn24.setBackground(Color.decode("#3D85C6"));
+	btn25.setBackground(Color.decode("#3D85C6"));
+	btn26.setBackground(Color.decode("#3D85C6"));
+	btn27.setBackground(Color.decode("#3D85C6"));
+	btn28.setBackground(Color.decode("#3D85C6"));
+	btn29.setBackground(Color.decode("#3D85C6"));
+	
+	//foreground
+	
+	btn0.setForeground(Color.WHITE);
+	btn1.setForeground(Color.WHITE);
+	btn2.setForeground(Color.WHITE);
+	btn3.setForeground(Color.WHITE);
+	btn4.setForeground(Color.WHITE);
+	btn5.setForeground(Color.WHITE);
+	btn6.setForeground(Color.WHITE);
+	btn7.setForeground(Color.WHITE);
+	btn8.setForeground(Color.WHITE);
+	btn9.setForeground(Color.WHITE);
+	
+	btn10.setForeground(Color.WHITE);
+	btn11.setForeground(Color.WHITE);
+	btn12.setForeground(Color.WHITE);
+	btn13.setForeground(Color.WHITE);
+	btn14.setForeground(Color.WHITE);
+	btn15.setForeground(Color.WHITE);
+	btn16.setForeground(Color.WHITE);
+	btn17.setForeground(Color.WHITE);
+	btn18.setForeground(Color.WHITE);
+	btn19.setForeground(Color.WHITE);
+	
+	btn20.setForeground(Color.WHITE);
+	btn21.setForeground(Color.WHITE);
+	btn22.setForeground(Color.WHITE);
+	btn23.setForeground(Color.WHITE);
+	btn24.setForeground(Color.WHITE);
+	btn25.setForeground(Color.WHITE);
+	btn26.setForeground(Color.WHITE);
+	btn27.setForeground(Color.WHITE);
+	btn28.setForeground(Color.WHITE);
+	btn29.setForeground(Color.WHITE);
+	
+	
+	//font
+	
+	btn0.setFont(new Font("Arial", Font.BOLD, 18));
+	btn1.setFont(new Font("Arial", Font.BOLD, 18));
+	btn2.setFont(new Font("Arial", Font.BOLD, 18));
+	btn3.setFont(new Font("Arial", Font.BOLD, 18));
+	btn4.setFont(new Font("Arial", Font.BOLD, 18));
+	btn5.setFont(new Font("Arial", Font.BOLD, 18));
+	btn6.setFont(new Font("Arial", Font.BOLD, 18));
+	btn7.setFont(new Font("Arial", Font.BOLD, 18));
+	btn8.setFont(new Font("Arial", Font.BOLD, 18));
+	btn9.setFont(new Font("Arial", Font.BOLD, 18));
+	
+	btn10.setFont(new Font("Arial", Font.BOLD, 18));
+	btn11.setFont(new Font("Arial", Font.BOLD, 18));
+	btn12.setFont(new Font("Arial", Font.BOLD, 18));
+	btn13.setFont(new Font("Arial", Font.BOLD, 18));
+	btn14.setFont(new Font("Arial", Font.BOLD, 18));
+	btn15.setFont(new Font("Arial", Font.BOLD, 18));
+	btn16.setFont(new Font("Arial", Font.BOLD, 18));
+	btn17.setFont(new Font("Arial", Font.BOLD, 18));
+	btn18.setFont(new Font("Arial", Font.BOLD, 18));
+	btn19.setFont(new Font("Arial", Font.BOLD, 18));
+	
+	btn20.setFont(new Font("Arial", Font.BOLD, 18));
+	btn21.setFont(new Font("Arial", Font.BOLD, 18));
+	btn22.setFont(new Font("Arial", Font.BOLD, 18));
+	btn23.setFont(new Font("Arial", Font.BOLD, 18));
+	btn24.setFont(new Font("Arial", Font.BOLD, 18));
+	btn25.setFont(new Font("Arial", Font.BOLD, 18));
+	btn26.setFont(new Font("Arial", Font.BOLD, 18));
+	btn27.setFont(new Font("Arial", Font.BOLD, 18));
+	btn28.setFont(new Font("Arial", Font.BOLD, 18));
+	btn29.setFont(new Font("Arial", Font.BOLD, 18));
 	
 	//action listener
 	btn0.addActionListener(this);
