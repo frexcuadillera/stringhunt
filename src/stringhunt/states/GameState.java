@@ -1,10 +1,12 @@
 package stringhunt.states;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -74,6 +76,7 @@ public class GameState implements ActionListener {
 	gamePanel = new JPanel();
 	gamePanel.setLayout(null);
 	gamePanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
+	gamePanel.setBackground(Color.decode("#ACFFFF"));
 	
 	//letter panel
 	letterPanelConstructor = new LetterPanel();
@@ -94,7 +97,7 @@ public class GameState implements ActionListener {
 		SCENE_PANEL_WIDTH, 
 		SCENE_PANEL_HEIGHT
 	);	
-	scenePanel.setBackground(new Color(0,255,0));
+	scenePanel.setBackground(Color.decode("#00ff00"));
 	
 	//player health
 	playerHealthLabel = new JLabel(String.valueOf(currentPlayerHealth)+"/10 HP");
@@ -129,7 +132,9 @@ public class GameState implements ActionListener {
 		TEXT_FIELD_WIDTH,
 		TEXT_FIELD_HEIGHT
 	);
+	textField.setFont(new Font("Arial", Font.BOLD, 18));
 	textField.setEditable(false);
+	textField.setBorder(BorderFactory.createLineBorder(Color.decode("#2C6791")));
 	textField.addActionListener(this);
 	textField.setText(null);
 	
@@ -190,7 +195,7 @@ public class GameState implements ActionListener {
 		return;
 	    }
 	    
-	   //do validate entry here
+	    //do validate entry here
 	    if(ldc.validateWord(textField.getText())) {
 		currentEnemyHealth -= ldc.calculateDamageDealt(textField.getText());
 		System.out.println("word is valid, dealt " +ldc.calculateDamageDealt(textField.getText())+ " damage");
@@ -221,15 +226,20 @@ public class GameState implements ActionListener {
 	    
 	    if(currentEnemyHealth <= 0) {
 		
+		//move to the next enemy
+		//do enemy die event here
 		currentEnemy++;
 		
 		if(currentEnemy > 5) {
+		    //restore player health to full
+		    currentPlayerHealth = 10;		    
 		    currentLevel++;
 		    currentEnemy = 1;
 		}
 		
 		if(currentLevel > 5) {
 		    //game over, you win!
+		    //do win event here
 		    System.out.println("graduate");
 		}
 		
