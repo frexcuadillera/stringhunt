@@ -1,15 +1,20 @@
 package stringhunt.letter;
 
 public class LetterDamageCalculator {
-    
-    public boolean validateWord(String word) {
-	
-	//test a
-	if(word.equals("A")) {
-	    return true;
-	} else {
-	    return false;
+        
+    public boolean validateWord(String input)  {
+	boolean isValid = false;
+		
+	for(int i = 0; i < Words.wordArray.length; i++) {
+	    if(input.equals(Words.wordArray[i])){
+		isValid = true;
+		break;
+	    } else {
+		isValid = false;
+	    }	    
 	}
+	
+	return isValid;
     }
     
     public int calculateDamageDealt(String word) {
