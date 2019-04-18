@@ -1,5 +1,6 @@
 package stringhunt.states;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -25,6 +26,7 @@ public class DescriptionState implements ActionListener{
 	descriptionPanel = new JPanel();
 	descriptionPanel.setLayout(null);
 	descriptionPanel.setBounds(0 , 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
+	descriptionPanel.setBackground(Color.decode("#ACFFFF"));
 	
 	backButton = new JButton();		
 	backButton.setBounds(BACK_X, BACK_Y, BACK_WIDTH, BACK_HEIGHT);

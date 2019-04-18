@@ -1,5 +1,6 @@
 package stringhunt.states;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,8 +25,9 @@ public class CreditsState implements ActionListener{
 	creditsPanel = new JPanel();
 	creditsPanel.setLayout(null);
 	creditsPanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
-	backButton = new JButton();
+	creditsPanel.setBackground(Color.decode("#ACFFFF"));
 	
+	backButton = new JButton();	
 	backButton.setBounds(BACK_X, BACK_Y, BACK_WIDTH, BACK_HEIGHT);
 	backButton.setIcon(new ImageIcon(Assets.btn_back[0]));
 	backButton.setPressedIcon(new ImageIcon(Assets.btn_back[1]));

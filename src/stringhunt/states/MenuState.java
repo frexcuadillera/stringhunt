@@ -1,5 +1,6 @@
 package stringhunt.states;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -30,6 +31,7 @@ public class MenuState implements ActionListener {
 	menuPanel = new JPanel();
 	menuPanel.setLayout(null);
 	menuPanel.setBounds(0, 0, 800, 450);
+	menuPanel.setBackground(Color.decode("#ACFFFF"));
 		
 	//buttons
 	startButton = new JButton();
