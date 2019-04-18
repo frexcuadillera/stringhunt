@@ -3,7 +3,8 @@ package stringhunt.gfx;
 import java.awt.image.BufferedImage;
 
 public class Assets {
-    
+        
+    //menu assets
     public static BufferedImage background; //unused
     public static BufferedImage[] btn_start;
     public static BufferedImage[] btn_tutorial;
@@ -24,6 +25,7 @@ public class Assets {
     public static BufferedImage player;
     
     public static void init() {
+	
 	//buffered image array
 	
 	//menu assets
