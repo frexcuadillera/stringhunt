@@ -6,18 +6,17 @@ background of the game
 
 to do:
 
-player and enemy stats
 player and enemy assets
 scene animation
 board generation = parameters(current level)
 game over event
 	
-pause panel/ pause event
-
 tutorial
 credits
 description
 
+bug: 
+timer bug
 
 optional:
 sounds
