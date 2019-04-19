@@ -101,7 +101,7 @@ public class StringHunt implements Runnable {
         
     public void run() {
 	int fps = 60;
-	double timePerTick = 100000000 / fps;
+	double timePerTick = 1000000000 / fps;
 	double delta = 0;
 	long now;
 	long lastTime = System.nanoTime();
@@ -120,7 +120,7 @@ public class StringHunt implements Runnable {
 		delta--;
 	    }
 	    
-	    if(timer >= 100000000) {
+	    if(timer >= 1000000000) {
 		timer = 0;
 	    }
 	    
@@ -132,7 +132,7 @@ public class StringHunt implements Runnable {
     
     private void tick() {
 	
-	if(state == "game") {
+	if(state == "game") {	    
 	    cardLayout.show(cardPanel, "game");
 	    game.tick();
 	}
