@@ -31,9 +31,6 @@ public class GameState implements ActionListener {
     private JLabel enemyHealthLabel;
     private JLabel timer;
     
-    private JOptionPane pausePane;
-    private JDialog pauseDialog;
-    
     private JOptionPane gameOverPane;
     private JDialog gameOverDialog;
     
@@ -41,7 +38,7 @@ public class GameState implements ActionListener {
     
     private JButton resetButton;
     private JButton attackButton;
-    private JButton menuButton;
+    private JButton pauseButton;
     
     private LetterPanel letterPanelConstructor;
     private LetterDamageCalculator ldc;
@@ -81,6 +78,7 @@ public class GameState implements ActionListener {
     private final int TIMER_WIDTH = 50;
     private final int TIMER_HEIGHT = 20;
     
+    private int pauseValue;
     private int gameOverValue;
     
     private int currentPlayerHealth = 10; //10
@@ -89,7 +87,7 @@ public class GameState implements ActionListener {
     private int currentEnemy = 1;
     private int currentLevel = 1;
     
-    private int currentTime = 300; //300
+    private int currentTime = 1; //300
     private int timeElapsed = 0;
     
     private boolean paused = false;
@@ -101,7 +99,11 @@ public class GameState implements ActionListener {
 	gamePanel.setBackground(Color.decode("#ACFFFF"));
 	
 	//game over pane
-	gameOverPane = new JOptionPane("RETRY?",JOptionPane.QUESTION_MESSAGE, JOptionPane.YES_NO_OPTION);
+	gameOverPane = new JOptionPane(
+		"RETRY?",
+		JOptionPane.QUESTION_MESSAGE, 
+		JOptionPane.YES_NO_OPTION
+	);
 	gameOverDialog = gameOverPane.createDialog(null, "GAME OVER");
 	gameOverDialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 	
@@ -189,11 +191,11 @@ public class GameState implements ActionListener {
 	attackButton.setPressedIcon(new ImageIcon(Assets.btn_attack[1]));
 	
 	//menu button
-	menuButton = new JButton();
-	menuButton.addActionListener(this);
-	menuButton.setBounds(X + 250, Y, WIDTH, HEIGHT);
-	menuButton.setIcon(new ImageIcon(Assets.btn_menu[0]));
-	menuButton.setPressedIcon(new ImageIcon(Assets.btn_menu[1]));
+	pauseButton = new JButton();
+	pauseButton.addActionListener(this);
+	pauseButton.setBounds(X + 250, Y, WIDTH, HEIGHT);
+	pauseButton.setIcon(new ImageIcon(Assets.btn_pause[0]));
+	pauseButton.setPressedIcon(new ImageIcon(Assets.btn_pause[1]));
 
 	//add to game panel
 	gamePanel.add(scenePanel);
@@ -201,7 +203,7 @@ public class GameState implements ActionListener {
 	gamePanel.add(textField);
 	gamePanel.add(resetButton);
 	gamePanel.add(attackButton);
-	gamePanel.add(menuButton);
+	gamePanel.add(pauseButton);
     }
             
     public void tick() {
@@ -313,8 +315,9 @@ public class GameState implements ActionListener {
 	    }
 	}
 	
-	if(e.getSource() == menuButton) {
-	    StringHunt.state = "menu"; // temp goto menu	    
+	if(e.getSource() == pauseButton) {
+	    paused = true;
+	    pause();
 	}
 	
     }
@@ -332,6 +335,33 @@ public class GameState implements ActionListener {
 	);
     }
     
+    public void pause() {
+	Object[] pauseOption = {
+	"RESUME",
+	"QUIT"
+	};
+	
+	pauseValue = JOptionPane.showOptionDialog(
+		null,
+		"PAUSED",
+		"String Hunt",
+                JOptionPane.YES_NO_OPTION, 
+                JOptionPane.PLAIN_MESSAGE,
+                null, 
+                pauseOption, 
+                null
+        );
+	
+	if(pauseValue == JOptionPane.YES_OPTION) {
+	    paused = false;
+	} else if (pauseValue == JOptionPane.NO_OPTION) {
+	    StringHunt.state = "menu";
+	} else {
+	    paused = false;
+	}
+
+    }
+    
     public void gameOver() {
 	gameOverDialog.setVisible(true);
 	gameOverValue = ((Integer)gameOverPane.getValue()).intValue();
@@ -347,7 +377,8 @@ public class GameState implements ActionListener {
 		updateEnemyHealthLabel();
 	    
 	} else if(gameOverValue == JOptionPane.NO_OPTION) {
-	    System.out.println("no pressed");
+	    //return to menu
+	    StringHunt.state = "menu";
 	}	
     }
     
