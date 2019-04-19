@@ -15,7 +15,7 @@ public class Assets {
     
     //game assets
     public static BufferedImage[] btn_attack;
-    public static BufferedImage[] btn_menu;
+    public static BufferedImage[] btn_pause;
     public static BufferedImage[] btn_reset;
     
     //
@@ -39,7 +39,7 @@ public class Assets {
 	//game assets
 	btn_reset = new BufferedImage[2]; //test
 	btn_attack = new BufferedImage[2];
-	btn_menu = new BufferedImage[2];
+	btn_pause = new BufferedImage[2];
 	
 	
 	//Spreadsheets
@@ -70,8 +70,8 @@ public class Assets {
 	btn_reset[1] = ImageLoader.loadImage("/ui/button_reset_1.png");
 	btn_attack[0] = ImageLoader.loadImage("/ui/button_attack_0.png");
 	btn_attack[1] = ImageLoader.loadImage("/ui/button_attack_1.png");
-	btn_menu[0] = ImageLoader.loadImage("/ui/button_menu_0.png");
-	btn_menu[1] = ImageLoader.loadImage("/ui/button_menu_1.png");
+	btn_pause[0] = ImageLoader.loadImage("/ui/button_pause_0.png");
+	btn_pause[1] = ImageLoader.loadImage("/ui/button_pause_1.png");
 
 	//player assets
 	
