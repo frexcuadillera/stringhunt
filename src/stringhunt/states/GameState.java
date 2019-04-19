@@ -9,9 +9,12 @@ import java.util.Arrays;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
 import stringhunt.StringHunt;
 import stringhunt.gfx.Assets;
@@ -26,6 +29,13 @@ public class GameState implements ActionListener {
     
     private JLabel playerHealthLabel;
     private JLabel enemyHealthLabel;
+    private JLabel timer;
+    
+    private JOptionPane pausePane;
+    private JDialog pauseDialog;
+    
+    private JOptionPane gameOverPane;
+    private JDialog gameOverDialog;
     
     public static JTextField textField;
     
@@ -66,17 +76,34 @@ public class GameState implements ActionListener {
     private final int ENEMY_HEALTH_X = 500;
     private final int ENEMY_HEALTH_Y = 10;
     
-    private int currentPlayerHealth = 10;
+    private final int TIMER_X = 290;
+    private final int TIMER_Y = 10;
+    private final int TIMER_WIDTH = 50;
+    private final int TIMER_HEIGHT = 20;
+    
+    private int gameOverValue;
+    
+    private int currentPlayerHealth = 10; //10
     private int currentEnemyHealth = 10;
     
     private int currentEnemy = 1;
     private int currentLevel = 1;
-       
+    
+    private int currentTime = 300; //300
+    private int timeElapsed = 0;
+    
+    private boolean paused = false;
+
     public GameState() {
 	gamePanel = new JPanel();
 	gamePanel.setLayout(null);
 	gamePanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
 	gamePanel.setBackground(Color.decode("#ACFFFF"));
+	
+	//game over pane
+	gameOverPane = new JOptionPane("RETRY?",JOptionPane.QUESTION_MESSAGE, JOptionPane.YES_NO_OPTION);
+	gameOverDialog = gameOverPane.createDialog(null, "GAME OVER");
+	gameOverDialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 	
 	//letter panel
 	letterPanelConstructor = new LetterPanel();
@@ -124,6 +151,12 @@ public class GameState implements ActionListener {
 	);
 	scenePanel.add(enemyHealthLabel);
 	
+	//timer
+	timer = new JLabel(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60));
+	timer.setBounds(TIMER_X, TIMER_Y, TIMER_WIDTH, TIMER_HEIGHT);
+	timer.setFont(new Font("Arial", Font.BOLD, 18));
+	scenePanel.add(timer);
+	
 	//text field
 	textField = new JTextField(TEXT_FIELD_COLUMNS);
 	textField.setBounds(
@@ -170,9 +203,20 @@ public class GameState implements ActionListener {
 	gamePanel.add(attackButton);
 	gamePanel.add(menuButton);
     }
-    
+            
     public void tick() {
 	letterPanelConstructor.tick();
+	timeElapsed++;
+	
+	if(timeElapsed%60 == 0 && currentTime > 0 && !paused) {
+	    currentTime--;
+	}
+		
+	timer.setText(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60));
+	
+	if(currentTime == 0) {
+	    gameOver();
+	}
     }
         
     public JPanel getGamePanel() {
@@ -197,21 +241,21 @@ public class GameState implements ActionListener {
 	    
 	    //do validate entry here
 	    if(ldc.validateWord(textField.getText())) {
-		currentEnemyHealth -= ldc.calculateDamageDealt(textField.getText());
-		System.out.println("word is valid, dealt " +ldc.calculateDamageDealt(textField.getText())+ " damage");
+		currentEnemyHealth -= ldc.calculateDamageDealt(
+			textField.getText()
+		);
+		System.out.println("word is valid, dealt " 
+			+ldc.calculateDamageDealt(textField.getText())
+			+ " damage"
+		);
 	    } else {
 		currentPlayerHealth -= ldc.calculateDamageTaken(textField.getText());
 		System.out.println("word is invalid, received "+ldc.calculateDamageTaken(textField.getText())+ " damage");
 	    }
 	    
-	    //update health here
-	    playerHealthLabel.setText(String.valueOf(currentPlayerHealth)+"/10 HP");
-	    enemyHealthLabel.setText(		
-		    String.valueOf(currentEnemyHealth) +
-		    "/" +
-		    (10 + ((currentEnemy - 1) * 5)) +
-		    " HP"
-	    );
+	    //update health here.
+	    updatePlayerHealthLabel();
+	    updateEnemyHealthLabel();
 	    
 	    //update board here
 	    textField.setText(null);
@@ -222,12 +266,18 @@ public class GameState implements ActionListener {
 		//do game over event here
 		playerHealthLabel.setText("0/10 HP");
 		System.out.println("game over player health 0");
+		//add delay
+		
+		gameOver();
+		
+		//scenePanel.setVisible(false);
+		//textField.setVisible(false);
+		//letterPanelObject.setVisible(false);
+		
 	    }
 	    
 	    if(currentEnemyHealth <= 0) {
 		
-		//move to the next enemy
-		//do enemy die event here
 		currentEnemy++;
 		
 		if(currentEnemy > 5) {
@@ -240,20 +290,66 @@ public class GameState implements ActionListener {
 		if(currentLevel > 5) {
 		    //game over, you win!
 		    //do win event here
+		    playerHealthLabel.setVisible(false);
+		    enemyHealthLabel.setVisible(false);
 		    System.out.println("graduate");
 		}
 		
-		enemyHealthLabel.setText("0/10 HP");
+		//enemyHealthLabel.setText("0/10 HP");
+		//do enemy die event here
+		//add delay
+		//reset timer
+		currentTime = 300 + ( 180 * (currentLevel - 1));
+		timer.setText(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60));
+		//move to the next enemy
+		//reset enemy health
+		
+		currentEnemyHealth = 10 + (currentEnemy - 1) * 5;
+		
 		System.out.println("enemy defeated");
+		
+		updatePlayerHealthLabel();
+		updateEnemyHealthLabel();
 	    }
 	}
 	
 	if(e.getSource() == menuButton) {
-	    StringHunt.state = "menu"; // temp goto menu
-	    //do pause event here
-	    
+	    StringHunt.state = "menu"; // temp goto menu	    
 	}
 	
     }
+    
+    public void updatePlayerHealthLabel() {
+	playerHealthLabel.setText(String.valueOf(currentPlayerHealth)+"/10 HP");
+    }
+    
+    public void updateEnemyHealthLabel() {
+	enemyHealthLabel.setText(
+		String.valueOf(currentEnemyHealth) +
+		"/" +
+		(10 + ((currentEnemy - 1) * 5)) +
+		" HP"
+	);
+    }
+    
+    public void gameOver() {
+	gameOverDialog.setVisible(true);
+	gameOverValue = ((Integer)gameOverPane.getValue()).intValue();
+	
+	if(gameOverValue == JOptionPane.YES_OPTION) {
+		//reset variables
+		currentLevel = 1;
+		currentEnemy = 1;
+		currentPlayerHealth = 10;
+		currentEnemyHealth = 10;
+		currentTime = 300;
+		updatePlayerHealthLabel();
+		updateEnemyHealthLabel();
+	    
+	} else if(gameOverValue == JOptionPane.NO_OPTION) {
+	    System.out.println("no pressed");
+	}	
+    }
+    
 
 }
