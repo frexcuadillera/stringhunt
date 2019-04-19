@@ -384,11 +384,13 @@ public class GameState implements ActionListener {
 	
 	if(gameOverValue == JOptionPane.YES_OPTION) {
 	    //reset variables
+	    textField.setText(null);
 	    currentLevel = 1;
 	    currentEnemy = 1;
 	    currentPlayerHealth = 10;
 	    currentEnemyHealth = 10;
 	    currentTime = 300;
+	    letterPanelConstructor.updateBoard(currentLevel);
 	    updatePlayerHealthLabel();
 	    updateEnemyHealthLabel();
 	    isGameOver = false;
