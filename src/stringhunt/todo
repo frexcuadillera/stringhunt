@@ -10,7 +10,6 @@ player and enemy stats
 player and enemy assets
 scene animation
 board generation = parameters(current level)
-timer
 game over event
 	
 pause panel/ pause event
