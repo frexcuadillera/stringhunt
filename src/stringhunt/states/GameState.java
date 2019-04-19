@@ -9,12 +9,10 @@ import java.util.Arrays;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
 
 import stringhunt.StringHunt;
 import stringhunt.gfx.Assets;
@@ -30,9 +28,6 @@ public class GameState implements ActionListener {
     private JLabel playerHealthLabel;
     private JLabel enemyHealthLabel;
     private JLabel timer;
-    
-    private JOptionPane gameOverPane;
-    private JDialog gameOverDialog;
     
     public static JTextField textField;
     
@@ -87,10 +82,13 @@ public class GameState implements ActionListener {
     private int currentEnemy = 1;
     private int currentLevel = 1;
     
-    private int currentTime = 1; //300
+    private int currentTime = 3; //300
     private int timeElapsed = 0;
     
-    private boolean paused = false;
+    private boolean isPaused = false;
+    private boolean isGameOver = false;
+    
+    private Thread gameOverThread;
 
     public GameState() {
 	gamePanel = new JPanel();
@@ -98,14 +96,12 @@ public class GameState implements ActionListener {
 	gamePanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
 	gamePanel.setBackground(Color.decode("#ACFFFF"));
 	
-	//game over pane
-	gameOverPane = new JOptionPane(
-		"RETRY?",
-		JOptionPane.QUESTION_MESSAGE, 
-		JOptionPane.YES_NO_OPTION
-	);
-	gameOverDialog = gameOverPane.createDialog(null, "GAME OVER");
-	gameOverDialog.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+	//game over thread
+	gameOverThread = new Thread() {
+	    public void run() {
+	        gameOver();
+	    }  
+	};
 	
 	//letter panel
 	letterPanelConstructor = new LetterPanel();
@@ -210,14 +206,19 @@ public class GameState implements ActionListener {
 	letterPanelConstructor.tick();
 	timeElapsed++;
 	
-	if(timeElapsed%60 == 0 && currentTime > 0 && !paused) {
-	    currentTime--;
+	if(timeElapsed%60 == 0 && !isPaused) {
+	    currentTime--;	    
 	}
-		
-	timer.setText(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60));
 	
-	if(currentTime == 0) {
-	    gameOver();
+	if(currentTime >= 0) {
+	    timer.setText(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60)); 
+	}
+	
+	System.out.println(currentTime);
+	
+	if(currentTime <= 0 && !isGameOver) {
+	    gameOverThread.start();
+	    isGameOver = true;
 	}
     }
         
@@ -316,7 +317,7 @@ public class GameState implements ActionListener {
 	}
 	
 	if(e.getSource() == pauseButton) {
-	    paused = true;
+	    isPaused = true;
 	    pause();
 	}
 	
@@ -353,34 +354,52 @@ public class GameState implements ActionListener {
         );
 	
 	if(pauseValue == JOptionPane.YES_OPTION) {
-	    paused = false;
+	    isPaused = false;
 	} else if (pauseValue == JOptionPane.NO_OPTION) {
 	    StringHunt.state = "menu";
+	    isPaused = false;
 	} else {
-	    paused = false;
+	    isPaused = false;
 	}
 
     }
     
     public void gameOver() {
-	gameOverDialog.setVisible(true);
-	gameOverValue = ((Integer)gameOverPane.getValue()).intValue();
+	
+	Object[] gameOverOption = {
+	"RETRY",
+	"QUIT"
+	};
+	
+	gameOverValue = JOptionPane.showOptionDialog(
+		null,
+		"GAME OVER",
+		"String Hunt",
+                JOptionPane.YES_NO_OPTION, 
+                JOptionPane.PLAIN_MESSAGE,
+                null, 
+                gameOverOption, 
+                null
+        );
 	
 	if(gameOverValue == JOptionPane.YES_OPTION) {
-		//reset variables
-		currentLevel = 1;
-		currentEnemy = 1;
-		currentPlayerHealth = 10;
-		currentEnemyHealth = 10;
-		currentTime = 300;
-		updatePlayerHealthLabel();
-		updateEnemyHealthLabel();
-	    
-	} else if(gameOverValue == JOptionPane.NO_OPTION) {
-	    //return to menu
+	    //reset variables
+	    currentLevel = 1;
+	    currentEnemy = 1;
+	    currentPlayerHealth = 10;
+	    currentEnemyHealth = 10;
+	    currentTime = 300;
+	    updatePlayerHealthLabel();
+	    updateEnemyHealthLabel();
+	    isGameOver = false;
+	} else if (gameOverValue == JOptionPane.NO_OPTION) {
 	    StringHunt.state = "menu";
-	}	
-    }
-    
+	    isGameOver = false;
+	} else {
+	    StringHunt.state = "menu";
+	    isGameOver = false;
+	}
+	
+    }    
 
 }
