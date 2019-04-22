@@ -60,7 +60,7 @@ public class LetterPanel implements ActionListener{
 	letterButtonCharacter = new String[30];
 	alreadyPressed = new boolean[30];
 	
-	updateBoard(1);
+	updateBoard(GameState.currentLevel);
 		
     }
     
