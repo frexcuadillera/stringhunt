@@ -79,10 +79,10 @@ public class GameState implements ActionListener {
     private int currentPlayerHealth = 10; //10
     private int currentEnemyHealth = 10;
     
-    private int currentEnemy = 1;
-    private int currentLevel = 1;
+    private int currentEnemy = 1; //1
+    public static int currentLevel = 1; //1
     
-    private int currentTime = 3; //300
+    private int currentTime = 300; //300
     private int timeElapsed = 0;
     
     private boolean isPaused = false;
@@ -91,6 +91,10 @@ public class GameState implements ActionListener {
     private Thread gameOverThread;
 
     public GameState() {
+	init();
+    }
+    
+    public void init(){
 	gamePanel = new JPanel();
 	gamePanel.setLayout(null);
 	gamePanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
@@ -102,7 +106,7 @@ public class GameState implements ActionListener {
 	        gameOver();
 	    }  
 	};
-	
+
 	//letter panel
 	letterPanelConstructor = new LetterPanel();
 	letterPanelObject = letterPanelConstructor.getLetterPanel();	
@@ -199,208 +203,203 @@ public class GameState implements ActionListener {
 	gamePanel.add(textField);
 	gamePanel.add(resetButton);
 	gamePanel.add(attackButton);
-	gamePanel.add(pauseButton);
+	gamePanel.add(pauseButton);	
     }
             
     public void tick() {
-	letterPanelConstructor.tick();
-	timeElapsed++;
-	
-	if(timeElapsed%60 == 0 && !isPaused) {
-	    currentTime--;	    
-	}
-	
-	if(currentTime >= 0) {
-	    timer.setText(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60)); 
-	}
-	
-	System.out.println(currentTime);
-	
-	if(currentTime <= 0 && !isGameOver) {
-	    gameOverThread.start();
-	    isGameOver = true;
-	}
+		letterPanelConstructor.tick();
+		timeElapsed++;
+		
+		if(timeElapsed%60 == 0 && !isPaused) {
+		    currentTime--;	    
+		}
+		
+		if(currentTime >= 0) {
+		    timer.setText(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60)); 
+		}
+		
+		//System.out.println(currentTime);
+		
+		if(currentTime <= 0 && !isGameOver) {
+		    gameOverThread.start();
+		    isGameOver = true;
+		}
     }
         
     public JPanel getGamePanel() {
         return gamePanel;
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
 	
-	if(e.getSource() == resetButton) {
-	    System.out.println("reset pressed");
-	    textField.setText(null);
-	    letterPanelConstructor.resetBoard();	    
-	}
+		if(e.getSource() == resetButton) {
+		    System.out.println("reset pressed");
+		    textField.setText(null);
+		    letterPanelConstructor.resetBoard();	    
+		}
 	
-	if(e.getSource() == attackButton) {    
-	    
-	    //do nothing if text field is empty
-	    if(textField.getText().isEmpty()) {
-		return;
-	    }
-	    
-	    //do validate entry here
-	    if(ldc.validateWord(textField.getText())) {
-		currentEnemyHealth -= ldc.calculateDamageDealt(
-			textField.getText()
-		);
-		System.out.println("word is valid, dealt " 
-			+ldc.calculateDamageDealt(textField.getText())
-			+ " damage"
-		);
-	    } else {
-		currentPlayerHealth -= ldc.calculateDamageTaken(textField.getText());
-		System.out.println("word is invalid, received "+ldc.calculateDamageTaken(textField.getText())+ " damage");
-	    }
-	    
-	    //update health here.
-	    updatePlayerHealthLabel();
-	    updateEnemyHealthLabel();
-	    
-	    //update board here
-	    textField.setText(null);
-	    Arrays.fill(letterPanelConstructor.alreadyPressed, false);
-	    letterPanelConstructor.updateBoard(currentLevel);
-	    
-	    if(currentPlayerHealth <= 0) {
-		//do game over event here
-		playerHealthLabel.setText("0/10 HP");
-		System.out.println("game over player health 0");
-		//add delay
-		
-		gameOver();
-		
-		//scenePanel.setVisible(false);
-		//textField.setVisible(false);
-		//letterPanelObject.setVisible(false);
-		
-	    }
-	    
-	    if(currentEnemyHealth <= 0) {
-		
-		currentEnemy++;
-		
-		if(currentEnemy > 5) {
-		    //restore player health to full
-		    currentPlayerHealth = 10;		    
-		    currentLevel++;
-		    currentEnemy = 1;
+		if(e.getSource() == attackButton) {    
+		    
+		    //do nothing if text field is empty
+		    if(textField.getText().isEmpty()) {
+				return;
+		    }
+		    
+		    //do validate entry here
+		    if(ldc.validateWord(textField.getText())) {
+
+				currentEnemyHealth -= ldc.calculateDamageDealt(
+					textField.getText()
+				);
+				System.out.println("word is valid, dealt " 
+					+ldc.calculateDamageDealt(textField.getText())
+					+ " damage"
+				);
+
+		    } else {
+				currentPlayerHealth -= ldc.calculateDamageTaken(textField.getText());
+				System.out.println("word is invalid, received "+ldc.calculateDamageTaken(textField.getText())+ " damage");
+		    }
+		    
+		    //update health here.
+		    updatePlayerHealthLabel();
+		    updateEnemyHealthLabel();
+		    
+		    //update board here
+		    textField.setText(null);
+		    Arrays.fill(letterPanelConstructor.alreadyPressed, false);
+		    letterPanelConstructor.updateBoard(currentLevel);
+		    
+		    if(currentPlayerHealth <= 0) {
+				//do game over event here
+				playerHealthLabel.setText("0/10 HP");
+				System.out.println("game over player health 0");
+				//add delay
+				
+				gameOver();
+				
+				//scenePanel.setVisible(false);
+				//textField.setVisible(false);
+				//letterPanelObject.setVisible(false);
+			
+		    }
+		    
+		    if(currentEnemyHealth <= 0) {
+			
+				currentEnemy++;
+				
+				if(currentEnemy > 5) {
+				    //restore player health to full
+				    currentPlayerHealth = 10;		    
+				    currentLevel++;
+				    currentEnemy = 1;
+				}
+				
+				if(currentLevel > 5) {
+				    //game over, you win!
+				    //do win event here
+				    playerHealthLabel.setVisible(false);
+				    enemyHealthLabel.setVisible(false);
+				    System.out.println("graduate");
+				}
+				
+				//enemyHealthLabel.setText("0/10 HP");
+				//do enemy die event here
+				//add delay
+				//reset timer
+				currentTime = 300 + ( 180 * (currentLevel - 1));
+				timer.setText(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60));
+				//move to the next enemy
+				//reset enemy health
+				
+				currentEnemyHealth = 10 + (currentEnemy - 1) * 5;
+				
+				System.out.println("enemy defeated");
+				
+				updatePlayerHealthLabel();
+				updateEnemyHealthLabel();
+		    }
 		}
 		
-		if(currentLevel > 5) {
-		    //game over, you win!
-		    //do win event here
-		    playerHealthLabel.setVisible(false);
-		    enemyHealthLabel.setVisible(false);
-		    System.out.println("graduate");
+		if(e.getSource() == pauseButton) {
+		    isPaused = true;
+		    pause();
 		}
-		
-		//enemyHealthLabel.setText("0/10 HP");
-		//do enemy die event here
-		//add delay
-		//reset timer
-		currentTime = 300 + ( 180 * (currentLevel - 1));
-		timer.setText(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60));
-		//move to the next enemy
-		//reset enemy health
-		
-		currentEnemyHealth = 10 + (currentEnemy - 1) * 5;
-		
-		System.out.println("enemy defeated");
-		
-		updatePlayerHealthLabel();
-		updateEnemyHealthLabel();
-	    }
-	}
-	
-	if(e.getSource() == pauseButton) {
-	    isPaused = true;
-	    pause();
-	}
 	
     }
     
     public void updatePlayerHealthLabel() {
-	playerHealthLabel.setText(String.valueOf(currentPlayerHealth)+"/10 HP");
+		playerHealthLabel.setText(String.valueOf(currentPlayerHealth)+"/10 HP");
     }
     
     public void updateEnemyHealthLabel() {
-	enemyHealthLabel.setText(
-		String.valueOf(currentEnemyHealth) +
-		"/" +
-		(10 + ((currentEnemy - 1) * 5)) +
-		" HP"
-	);
+		enemyHealthLabel.setText(
+			String.valueOf(currentEnemyHealth) +
+			"/" +
+			(10 + ((currentEnemy - 1) * 5)) +
+			" HP"
+		);
     }
     
     public void pause() {
-	Object[] pauseOption = {
-	"RESUME",
-	"QUIT"
-	};
-	
-	pauseValue = JOptionPane.showOptionDialog(
-		null,
-		"PAUSED",
-		"String Hunt",
-                JOptionPane.YES_NO_OPTION, 
-                JOptionPane.PLAIN_MESSAGE,
-                null, 
-                pauseOption, 
-                null
-        );
-	
-	if(pauseValue == JOptionPane.YES_OPTION) {
-	    isPaused = false;
-	} else if (pauseValue == JOptionPane.NO_OPTION) {
-	    StringHunt.state = "menu";
-	    isPaused = false;
-	} else {
-	    isPaused = false;
-	}
+		Object[] pauseOption = {
+			"RESUME",
+			"QUIT"
+		};
+		
+		pauseValue = JOptionPane.showOptionDialog(
+			null,
+			"PAUSED",
+			"String Hunt",
+	        JOptionPane.YES_NO_OPTION, 
+	        JOptionPane.PLAIN_MESSAGE,
+	        null, 
+	        pauseOption, 
+	        null
+	    );
+		
+		if(pauseValue == JOptionPane.YES_OPTION) {
+		    isPaused = false;
+		} else if (pauseValue == JOptionPane.NO_OPTION) {
+		    StringHunt.state = "menu";
+		    isPaused = false;
+		} else {
+		    isPaused = false;
+		}
 
     }
     
     public void gameOver() {
+		
+		Object[] gameOverOption = {
+			"RETRY",
+			"QUIT"
+		};
 	
-	Object[] gameOverOption = {
-	"RETRY",
-	"QUIT"
-	};
-	
-	gameOverValue = JOptionPane.showOptionDialog(
-		null,
-		"GAME OVER",
-		"String Hunt",
-                JOptionPane.YES_NO_OPTION, 
-                JOptionPane.PLAIN_MESSAGE,
-                null, 
-                gameOverOption, 
-                null
-        );
-	
-	if(gameOverValue == JOptionPane.YES_OPTION) {
-	    //reset variables
-	    textField.setText(null);
-	    currentLevel = 1;
-	    currentEnemy = 1;
-	    currentPlayerHealth = 10;
-	    currentEnemyHealth = 10;
-	    currentTime = 300;
-	    letterPanelConstructor.updateBoard(currentLevel);
-	    updatePlayerHealthLabel();
-	    updateEnemyHealthLabel();
-	    isGameOver = false;
-	} else if (gameOverValue == JOptionPane.NO_OPTION) {
-	    StringHunt.state = "menu";
-	    isGameOver = false;
-	} else {
-	    StringHunt.state = "menu";
-	    isGameOver = false;
-	}
+		gameOverValue = JOptionPane.showOptionDialog(
+			null,
+			"GAME OVER",
+			"String Hunt",
+            JOptionPane.YES_NO_OPTION, 
+            JOptionPane.PLAIN_MESSAGE,
+            null, 
+            gameOverOption, 
+            null
+	    );
+		
+		if(gameOverValue == JOptionPane.YES_OPTION) {
+		    
+		    //do game over event here
+		    
+		    
+		} else if (gameOverValue == JOptionPane.NO_OPTION) {
+		    StringHunt.state = "menu";
+		    isGameOver = false;
+		} else {
+		    StringHunt.state = "menu";
+		    isGameOver = false;
+		}
 	
     }    
 
