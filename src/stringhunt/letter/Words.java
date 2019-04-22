@@ -92,9 +92,9 @@ public class Words {
 	    "BUS",
 	    "BYTE",
 	    "BYTECODE",
-	    " CABLE",
+	    "CABLE",
 	    "CACHE",
-	    "CAMEL CASE",
+	    "CAMELCASE",
 	    "CAMERA",
 	    "CAPS",
 	    "CAPTCHA",
@@ -326,7 +326,7 @@ public class Words {
 	    "INTERPRETER",
 	    "INTERRUPT",
 	    "INTRANET",
-	    "IRRATIONAL NUMBER",
+	    "IRRATIONALNUMBER",
 	    "ITERATION",
 	    "JAVA",
 	    "JAVASCRIPT",
@@ -417,7 +417,7 @@ public class Words {
 	    "MOUNTAIN",
 	    "MOUSE",
 	    "MULTICORE",
-	    "MULTICASTING ",
+	    "MULTICASTING",
 	    "MULTIMEDIA",
 	    "MULTIPLATFORM",
 	    "MULTIPROCESSING",
@@ -453,7 +453,7 @@ public class Words {
 	    "OPTICAL",
 	    "OUTBOX",
 	    "OUTPUT",
-	    "OVERCLOCKING ",
+	    "OVERCLOCKING",
 	    "OVERWRITE",
 	    "PACKET",
 	    "PAN",
@@ -685,7 +685,7 @@ public class Words {
 	    "TROLL",
 	    "TROUBLESHOOTING",
 	    "TRUNCATE",
-	    "TUBMLR",
+	    "TUMBLR",
 	    "TUNNERLING",
 	    "TURORIAL",
 	    "TWEAK",
@@ -744,8 +744,8 @@ public class Words {
 	    "YOUTUBE",
 	    "ZEBIBYTE",
 	    "ZETTABYTE",
-	    "ZONE",
+	    "ZONE"
 
     };
-    
+        
 }
