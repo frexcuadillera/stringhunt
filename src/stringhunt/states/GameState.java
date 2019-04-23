@@ -27,6 +27,7 @@ public class GameState implements ActionListener {
     
     private JLabel playerHealthLabel;
     private JLabel enemyHealthLabel;
+    private JLabel levelPanel;
     private JLabel timer;
     
     public static JTextField textField;
@@ -73,6 +74,11 @@ public class GameState implements ActionListener {
     private final int TIMER_WIDTH = 50;
     private final int TIMER_HEIGHT = 20;
     
+    private int LEVEL_X = 355;
+    private int LEVEL_Y = 8;
+    private int LEVEL_WIDTH = 150;
+    private int LEVEL_HEIGHT = 20;
+    
     private int pauseValue;
     private int gameOverValue;
     
@@ -85,7 +91,7 @@ public class GameState implements ActionListener {
     private int currentTime = 300; //300
     private int timeElapsed = 0;
     
-    private boolean isPaused = false;
+    public static boolean isPaused = false;
     private boolean isGameOver = false;
     
     private Thread gameOverThread;
@@ -159,6 +165,16 @@ public class GameState implements ActionListener {
 	timer.setFont(new Font("Arial", Font.BOLD, 18));
 	scenePanel.add(timer);
 	
+	//level panel
+	levelPanel = new JLabel();
+	levelPanel.setBounds(
+		LEVEL_X,
+		LEVEL_Y,
+		LEVEL_WIDTH,
+		LEVEL_HEIGHT
+	);
+	gamePanel.add(levelPanel);
+		
 	//text field
 	textField = new JTextField(TEXT_FIELD_COLUMNS);
 	textField.setBounds(
@@ -223,6 +239,30 @@ public class GameState implements ActionListener {
 		if(currentTime <= 0 && !isGameOver) {
 		    gameOverThread.start();
 		    isGameOver = true;
+		}
+		
+		if(currentLevel == 1) {
+		    levelPanel.setText("1st Year");
+		} else if (currentLevel == 2) {
+		    levelPanel.setText("2nd Year");
+		} else if (currentLevel == 3) {
+		    levelPanel.setText("3rd Year");
+		} else if (currentLevel == 4) {
+		    levelPanel.setText("4th Year");
+		} else if (currentLevel == 5) {
+		    levelPanel.setText("5th Year");
+		}
+		
+		if(currentEnemy == 1) {
+		    levelPanel.setText(levelPanel.getText().concat(": Enemy 1"));
+		} else if (currentEnemy == 2) {
+		    levelPanel.setText(levelPanel.getText().concat(": Enemy 2"));
+		} else if (currentEnemy == 3) {
+		    levelPanel.setText(levelPanel.getText().concat(": Enemy 3"));
+		} else if (currentEnemy == 4) {
+		    levelPanel.setText(levelPanel.getText().concat(": Enemy 4"));
+		} else if (currentEnemy == 5) {
+		    levelPanel.setText(levelPanel.getText().concat(": BOSS"));
 		}
     }
         
@@ -363,11 +403,24 @@ public class GameState implements ActionListener {
 		    isPaused = false;
 		} else if (pauseValue == JOptionPane.NO_OPTION) {
 		    StringHunt.state = "menu";
-		    isPaused = false;
+		    isPaused = true;
+		    restartGame();
 		} else {
-		    isPaused = false;
+		    StringHunt.state = "menu";
+		    isPaused = true;
+		    restartGame();
 		}
 
+    }
+    
+    public void restartGame() {
+	currentLevel = 1;
+	currentEnemy = 1;
+	currentTime = 300;
+	currentPlayerHealth = 10;
+	currentEnemyHealth = 10;
+	updatePlayerHealthLabel();
+	updateEnemyHealthLabel();
     }
     
     public void gameOver() {
@@ -391,14 +444,16 @@ public class GameState implements ActionListener {
 		if(gameOverValue == JOptionPane.YES_OPTION) {
 		    
 		    //do game over event here
-		    
+		    restartGame();
 		    
 		} else if (gameOverValue == JOptionPane.NO_OPTION) {
 		    StringHunt.state = "menu";
 		    isGameOver = false;
+		    restartGame();
 		} else {
 		    StringHunt.state = "menu";
 		    isGameOver = false;
+		    restartGame();
 		}
 	
     }    
