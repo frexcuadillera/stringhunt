@@ -458,7 +458,7 @@ public class Words {
 	    "PACKET",
 	    "PAN",
 	    "PARALLEL",
-	    "PARAMETER ",
+	    "PARAMETER",
 	    "PARITY",
 	    "PARSE",
 	    "PARTITION",
