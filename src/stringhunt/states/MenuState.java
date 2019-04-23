@@ -70,6 +70,7 @@ public class MenuState implements ActionListener {
 	
 	if(e.getSource() == startButton) {
 	    StringHunt.state = "game";
+	    GameState.isPaused = false;
 	    System.out.println("start presssed");
 	}
 	
