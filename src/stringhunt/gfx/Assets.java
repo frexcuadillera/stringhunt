@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 public class Assets {
         
     //menu assets
-    public static BufferedImage background; //unused
     public static BufferedImage[] btn_start;
     public static BufferedImage[] btn_tutorial;
     public static BufferedImage[] btn_description;
@@ -18,11 +17,11 @@ public class Assets {
     public static BufferedImage[] btn_pause;
     public static BufferedImage[] btn_reset;
     
-    //
+    //letters
     public static BufferedImage[] btn_letters;
     public static BufferedImage[] btn_letters_active;
        
-    public static BufferedImage player;
+    public static BufferedImage credits_background;
     
     public static void init() {
 	
@@ -51,7 +50,6 @@ public class Assets {
 	
 	
 	// main menu assets
-	background = ImageLoader.loadImage("/ui/background.jpg");
 	btn_start[0] = ImageLoader.loadImage("/ui/button_start_0.png");
 	btn_start[1] = ImageLoader.loadImage("/ui/button_start_1.png");
 	btn_tutorial[0] = ImageLoader.loadImage("/ui/button_tutorial_0.png");
@@ -73,8 +71,8 @@ public class Assets {
 	btn_pause[0] = ImageLoader.loadImage("/ui/button_pause_0.png");
 	btn_pause[1] = ImageLoader.loadImage("/ui/button_pause_1.png");
 
-	//player assets
-	
+	//credits assets
+	credits_background = ImageLoader.loadImage("/ui/credits.jpg");
 	
 	//load spritesheet heres
 	//load image first to convert as spritesheet
