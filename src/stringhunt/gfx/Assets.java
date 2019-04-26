@@ -11,11 +11,14 @@ public class Assets {
     public static BufferedImage[] btn_credits;
     public static BufferedImage[] btn_quit;
     public static BufferedImage[] btn_back;
-    
+
     //game assets
     public static BufferedImage[] btn_attack;
     public static BufferedImage[] btn_pause;
     public static BufferedImage[] btn_reset;
+    
+    public static BufferedImage btn_refresh;
+    public static BufferedImage btn_refresh_pressed;
     
     //letters
     public static BufferedImage[] btn_letters;
@@ -40,9 +43,9 @@ public class Assets {
 	btn_attack = new BufferedImage[2];
 	btn_pause = new BufferedImage[2];
 	
-	
-	//Spreadsheets
-	//enemy_sheet = new SpriteSheet(ImageLoader.loadImage("/test/test_sprite.png"));
+	btn_refresh = ImageLoader.loadImage("/ui/btn_refresh.png");
+	btn_refresh_pressed = ImageLoader.loadImage("/ui/btn_refresh_pressed.png");
+
 	
 	
 	//load image here
@@ -74,12 +77,6 @@ public class Assets {
 	//credits assets
 	credits_background = ImageLoader.loadImage("/ui/credits.jpg");
 	
-	//load spritesheet heres
-	//load image first to convert as spritesheet
-	
-	//SpriteSheet ui_sheet = new SpriteSheet(ImageLoader.loadImage("/sheets/blueSheet.png"));	
-	//btn_start[0] = ui_sheet.crop(0, 0, 190, 49);
-	//btn_start[1] = ui_sheet.crop(0, 50, 190, 49);
     }
 
 }
