@@ -280,11 +280,6 @@ public class LetterPanel implements ActionListener{
 
     }
     
-    public void tick() {
-		
-
-    }
-    
     public JPanel getLetterPanel() {
 	return letterPanel;
     }
@@ -332,61 +327,71 @@ public class LetterPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 	
 	if(e.getSource() == btn0 && !alreadyPressed[0]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[0]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[0]));
 	    alreadyPressed[0] = true;
 	    btn0.setVisible(false);
 	}
 
 	if(e.getSource() == btn1 && !alreadyPressed[1]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[1]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[1]));
 	    alreadyPressed[1] = true;
 	    btn1.setVisible(false);
 	}
 	
 	if(e.getSource() == btn2 && !alreadyPressed[2]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[2]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[2]));
 	    alreadyPressed[2] = true;
 	    btn2.setVisible(false);
 	}
 	
 	if(e.getSource() == btn3 && !alreadyPressed[3]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[3]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[3]));
 	    alreadyPressed[3] = true;
 	    btn3.setVisible(false);
 	}
 	
 	if(e.getSource() == btn4 && !alreadyPressed[4]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[4]));  
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[4]));  
 	    alreadyPressed[4] = true;
 	    btn4.setVisible(false);
 	}
 	
 	if(e.getSource() == btn5 && !alreadyPressed[5]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[5]));  
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[5]));  
 	    alreadyPressed[5] = true;
 	    btn5.setVisible(false);
 	}
 	
 	if(e.getSource() == btn6 && !alreadyPressed[6]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[6]));  
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[6]));  
 	    alreadyPressed[6] = true;
 	    btn6.setVisible(false);
 	}
 	
 	if(e.getSource() == btn7 && !alreadyPressed[7]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[7])); 
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[7])); 
 	    alreadyPressed[7] = true;
 	    btn7.setVisible(false);
 	}
 	
 	if(e.getSource() == btn8 && !alreadyPressed[8]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[8])); 
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[8])); 
 	    alreadyPressed[8] = true;
 	    btn8.setVisible(false);
 	}
 	
 	if(e.getSource() == btn9 && !alreadyPressed[9]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[9]));  
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[9]));  
 	    alreadyPressed[9] = true;
 	    btn9.setVisible(false);
 	}
@@ -394,61 +399,71 @@ public class LetterPanel implements ActionListener{
 	//10
 	
 	if(e.getSource() == btn10 && !alreadyPressed[10]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[10]));  
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[10]));  
 	    alreadyPressed[10] = true;
 	    btn10.setVisible(false);
 	}
 	
 	if(e.getSource() == btn11 && !alreadyPressed[11]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[11])); 
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[11])); 
 	    alreadyPressed[11] = true;
 	    btn11.setVisible(false);
 	}
 	
 	if(e.getSource() == btn12 && !alreadyPressed[12]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[12])); 
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[12])); 
 	    alreadyPressed[12] = true;
 	    btn12.setVisible(false);
 	}
 	
 	if(e.getSource() == btn13 && !alreadyPressed[13]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[13]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[13]));
 	    alreadyPressed[13] = true;
 	    btn13.setVisible(false);
 	}
 	
 	if(e.getSource() == btn14 && !alreadyPressed[14]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[14]));   
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[14]));   
 	    alreadyPressed[14] = true;
 	    btn14.setVisible(false);
 	}
 	
 	if(e.getSource() == btn15 && !alreadyPressed[15]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[15]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[15]));
 	    alreadyPressed[15] = true;
 	    btn15.setVisible(false);
 	}
 	
 	if(e.getSource() == btn16 && !alreadyPressed[16]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[16])); 
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[16])); 
 	    alreadyPressed[16] = true;
 	    btn16.setVisible(false);
 	}
 	
 	if(e.getSource() == btn17 && !alreadyPressed[17]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[17]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[17]));
 	    alreadyPressed[17] = true;
 	    btn17.setVisible(false);
 	}
 	
 	if(e.getSource() == btn18 && !alreadyPressed[18]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[18]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[18]));
 	    alreadyPressed[18] = true;
 	    btn18.setVisible(false);
 	}
 	
 	if(e.getSource() == btn19 && !alreadyPressed[19]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[19])); 
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[19])); 
 	    alreadyPressed[19] = true;
 	    btn19.setVisible(false);
 	}
@@ -456,61 +471,71 @@ public class LetterPanel implements ActionListener{
 	//20
 	
 	if(e.getSource() == btn20 && !alreadyPressed[20]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[20]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[20]));
 	    alreadyPressed[20] = true;
 	    btn20.setVisible(false);
 	}
 	
 	if(e.getSource() == btn21 && !alreadyPressed[21]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[21])); 
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[21])); 
 	    alreadyPressed[21] = true;
 	    btn21.setVisible(false);
 	}
 	
 	if(e.getSource() == btn22 && !alreadyPressed[22]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[22]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[22]));
 	    alreadyPressed[22] = true;
 	    btn22.setVisible(false);
 	}
 	
 	if(e.getSource() == btn23 && !alreadyPressed[23]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[23])); 
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[23])); 
 	    alreadyPressed[23] = true;
 	    btn23.setVisible(false);
 	}
 	
 	if(e.getSource() == btn24 && !alreadyPressed[24]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[24])); 
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[24])); 
 	    alreadyPressed[24] = true;
 	    btn24.setVisible(false);
 	}
 	
 	if(e.getSource() == btn25 && !alreadyPressed[25]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[25])); 
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[25])); 
 	    alreadyPressed[25] = true;
 	    btn25.setVisible(false);
 	}
 	
 	if(e.getSource() == btn26 && !alreadyPressed[26]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[26]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[26]));
 	    alreadyPressed[26] = true;
 	    btn26.setVisible(false);
 	}
 	
 	if(e.getSource() == btn27 && !alreadyPressed[27]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[27]));  
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[27]));  
 	    alreadyPressed[27] = true;
 	    btn27.setVisible(false);
 	}
 	
 	if(e.getSource() == btn28 && !alreadyPressed[28]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[28])); 
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[28])); 
 	    alreadyPressed[28] = true;
 	    btn28.setVisible(false);
 	}
 	
 	if(e.getSource() == btn29 && !alreadyPressed[29]) {
-	    GameState.textField.setText(GameState.textField.getText().concat(letterButtonCharacter[29]));
+	    GameState.textField.setText(
+		    GameState.textField.getText().concat(letterButtonCharacter[29]));
 	    alreadyPressed[29] = true;
 	    btn29.setVisible(false);
 	}

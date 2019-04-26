@@ -35,6 +35,7 @@ public class GameState implements ActionListener {
     private JButton resetButton;
     private JButton attackButton;
     private JButton pauseButton;
+    private JButton refreshButton;
     
     private LetterPanel letterPanelConstructor;
     private LetterDamageCalculator ldc;
@@ -59,6 +60,11 @@ public class GameState implements ActionListener {
     private final int TEXT_FIELD_Y = 220;
     private final int TEXT_FIELD_WIDTH = 200;
     private final int TEXT_FIELD_HEIGHT = 30;
+    
+    private final int REFRESH_BUTTON_X = 230;
+    private final int REFRESH_BUTTON_Y = 210;
+    private final int REFRESH_BUTTON_WIDTH = 50;
+    private final int REFRESH_BUTTON_HEIGHT = 50;
     
     private final int HEALTH_WIDTH = 50;
     private final int HEALTH_HEIGHT = 10;
@@ -189,7 +195,19 @@ public class GameState implements ActionListener {
 	textField.addActionListener(this);
 	textField.setText(null);
 	
-	//letter damage calculator
+	//refresh button
+	refreshButton = new JButton();
+	refreshButton.addActionListener(this);
+	refreshButton.setBounds(
+		REFRESH_BUTTON_X,
+		REFRESH_BUTTON_Y,
+		REFRESH_BUTTON_WIDTH,
+		REFRESH_BUTTON_HEIGHT
+	);
+	refreshButton.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+	refreshButton.setIcon(new ImageIcon(Assets.btn_refresh));
+	refreshButton.setPressedIcon(new ImageIcon(Assets.btn_refresh_pressed));
+	//letter damage calculator 
 	ldc = new LetterDamageCalculator();
 	
 	//reset button
@@ -217,13 +235,13 @@ public class GameState implements ActionListener {
 	gamePanel.add(scenePanel);
 	gamePanel.add(letterPanelObject);
 	gamePanel.add(textField);
+	gamePanel.add(refreshButton);
 	gamePanel.add(resetButton);
 	gamePanel.add(attackButton);
 	gamePanel.add(pauseButton);	
     }
             
     public void tick() {
-		letterPanelConstructor.tick();
 		timeElapsed++;
 		
 		if(timeElapsed%60 == 0 && !isPaused) {
@@ -274,7 +292,6 @@ public class GameState implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 	
 		if(e.getSource() == resetButton) {
-		    System.out.println("reset pressed");
 		    textField.setText(null);
 		    letterPanelConstructor.resetBoard();	    
 		}
@@ -292,14 +309,9 @@ public class GameState implements ActionListener {
 				currentEnemyHealth -= ldc.calculateDamageDealt(
 					textField.getText()
 				);
-				System.out.println("word is valid, dealt " 
-					+ldc.calculateDamageDealt(textField.getText())
-					+ " damage"
-				);
 
 		    } else {
 				currentPlayerHealth -= ldc.calculateDamageTaken(textField.getText());
-				System.out.println("word is invalid, received "+ldc.calculateDamageTaken(textField.getText())+ " damage");
 		    }
 		    
 		    //update health here.
@@ -314,7 +326,6 @@ public class GameState implements ActionListener {
 		    if(currentPlayerHealth <= 0) {
 				//do game over event here
 				playerHealthLabel.setText("0/10 HP");
-				System.out.println("game over player health 0");
 				//add delay
 				
 				gameOver();
@@ -355,8 +366,6 @@ public class GameState implements ActionListener {
 				
 				currentEnemyHealth = 10 + (currentEnemy - 1) * 5;
 				
-				System.out.println("enemy defeated");
-				
 				updatePlayerHealthLabel();
 				updateEnemyHealthLabel();
 		    }
@@ -365,6 +374,12 @@ public class GameState implements ActionListener {
 		if(e.getSource() == pauseButton) {
 		    isPaused = true;
 		    pause();
+		}
+		
+		if(e.getSource() == refreshButton) {
+		    textField.setText(null);
+		    letterPanelConstructor.resetBoard();
+		    letterPanelConstructor.updateBoard(currentLevel);
 		}
 	
     }
@@ -456,6 +471,6 @@ public class GameState implements ActionListener {
 		    restartGame();
 		}
 	
-    }    
+    }
 
 }
