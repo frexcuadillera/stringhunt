@@ -78,6 +78,7 @@ public class StringHunt implements Runnable {
 	
 	//frame mode
 	frame.setLayout(null);
+	frame.setIconImage(Assets.icon);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
 	frame.setResizable(false);
