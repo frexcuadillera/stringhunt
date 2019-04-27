@@ -46,25 +46,33 @@ public class ScenePanel extends JPanel {
     private Animation a55;
     
     public ScenePanel() {
+	
 	a11 = new Animation(500, Assets.enemy_11);
+	a12 = new Animation(500, Assets.enemy_12);
+	a13 = new Animation(500, Assets.enemy_13);
+	
     }
     
     @Override
     protected void paintComponent(Graphics g) {
+	
 	super.paintComponent(g);
 	g.drawImage(Assets.scene_panel_bg, 0, 0, null);	
 	
 	if(GameState.currentLevel == 1) {
+	    
 	    if(GameState.currentEnemy == 1) {
 		g.drawImage(a11.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
 		a11.tick();
 	    }
 	    
 	    if(GameState.currentEnemy == 2) {
+		g.drawImage(a12.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
 		a12.tick();
 	    }
 	    
 	    if(GameState.currentEnemy == 3) {
+		g.drawImage(a13.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
 		a13.tick();
 	    }
 	    
@@ -79,6 +87,7 @@ public class ScenePanel extends JPanel {
 	}
 	
 	if(GameState.currentLevel == 2) {
+	    
 	    if(GameState.currentEnemy == 1) {
 		a21.tick();
 	    }
@@ -97,10 +106,12 @@ public class ScenePanel extends JPanel {
 	    
 	    if(GameState.currentEnemy == 5) {
 		a25.tick();
-	    }	    
+	    }
+	    
 	}
 	
 	if(GameState.currentLevel == 3) {
+	    
 	    if(GameState.currentEnemy == 1) {
 		a31.tick();
 	    }
@@ -119,7 +130,8 @@ public class ScenePanel extends JPanel {
 	    
 	    if(GameState.currentEnemy == 5) {
 		a35.tick();
-	    }		    
+	    }
+	    
 	}
 	
 	if(GameState.currentLevel == 4) {
@@ -141,7 +153,8 @@ public class ScenePanel extends JPanel {
 	    
 	    if(GameState.currentEnemy == 5) {
 		a45.tick();
-	    }		    
+	    }
+	    
 	}
 	
 	if(GameState.currentLevel == 5) {
@@ -163,7 +176,8 @@ public class ScenePanel extends JPanel {
 	    
 	    if(GameState.currentEnemy == 5) {
 		a55.tick();
-	    }		    
+	    }
+	    
 	}
 		
     }

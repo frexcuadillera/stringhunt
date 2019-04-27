@@ -79,6 +79,8 @@ public class Assets {
 	btn_pause = new BufferedImage[2];
 	
 	enemy_11 = new BufferedImage[2];
+	enemy_12 = new BufferedImage[2];
+	enemy_13 = new BufferedImage[2];
 	//load image here
 	//testImage = ImageLoader.loadImage("/textures/test.jpg");
 	
@@ -112,6 +114,10 @@ public class Assets {
 	//enemy animations
 	enemy_11[0] = ImageLoader.loadImage("/characters/11_0.png");
 	enemy_11[1] = ImageLoader.loadImage("/characters/11_1.png");
+	enemy_12[0] = ImageLoader.loadImage("/characters/12_0.png");
+	enemy_12[1] = ImageLoader.loadImage("/characters/12_1.png");
+	enemy_13[0] = ImageLoader.loadImage("/characters/13_0.png");
+	enemy_13[1] = ImageLoader.loadImage("/characters/13_1.png");
 
 	//credits assets
 	credits_background = ImageLoader.loadImage("/ui/credits.jpg");
