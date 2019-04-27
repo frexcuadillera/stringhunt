@@ -19,6 +19,7 @@ public class Assets {
     
     public static BufferedImage btn_refresh;
     public static BufferedImage btn_refresh_pressed;
+    public static BufferedImage scene_panel_bg;
     
     //letters
     public static BufferedImage[] btn_letters;
@@ -42,11 +43,6 @@ public class Assets {
 	btn_reset = new BufferedImage[2]; //test
 	btn_attack = new BufferedImage[2];
 	btn_pause = new BufferedImage[2];
-	
-	btn_refresh = ImageLoader.loadImage("/ui/btn_refresh.png");
-	btn_refresh_pressed = ImageLoader.loadImage("/ui/btn_refresh_pressed.png");
-
-	
 	
 	//load image here
 	//testImage = ImageLoader.loadImage("/textures/test.jpg");
@@ -73,6 +69,9 @@ public class Assets {
 	btn_attack[1] = ImageLoader.loadImage("/ui/button_attack_1.png");
 	btn_pause[0] = ImageLoader.loadImage("/ui/button_pause_0.png");
 	btn_pause[1] = ImageLoader.loadImage("/ui/button_pause_1.png");
+	btn_refresh = ImageLoader.loadImage("/ui/btn_refresh.png");
+	btn_refresh_pressed = ImageLoader.loadImage("/ui/btn_refresh_pressed.png");
+	scene_panel_bg = ImageLoader.loadImage("ui/scene_panel_bg.jpg");
 
 	//credits assets
 	credits_background = ImageLoader.loadImage("/ui/credits.jpg");
