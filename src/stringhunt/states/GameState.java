@@ -18,6 +18,7 @@ import stringhunt.StringHunt;
 import stringhunt.gfx.Assets;
 import stringhunt.letter.LetterDamageCalculator;
 import stringhunt.letter.LetterPanel;
+import stringhunt.scene.ScenePanel;
 
 public class GameState implements ActionListener {
    
@@ -91,7 +92,7 @@ public class GameState implements ActionListener {
     private int currentPlayerHealth = 10; //10
     private int currentEnemyHealth = 10;
     
-    private int currentEnemy = 1; //1
+    public static int currentEnemy = 1; //1
     public static int currentLevel = 1; //1
     
     private int currentTime = 300; //300
@@ -130,7 +131,7 @@ public class GameState implements ActionListener {
 	);
 	
 	//scene panel
-	scenePanel = new JPanel();
+	scenePanel = new ScenePanel();
 	scenePanel.setLayout(null);
 	scenePanel.setBounds(
 		SCENE_PANEL_OBJECT_X, 
@@ -138,7 +139,6 @@ public class GameState implements ActionListener {
 		SCENE_PANEL_WIDTH, 
 		SCENE_PANEL_HEIGHT
 	);	
-	scenePanel.setBackground(Color.decode("#00ff00"));
 	
 	//player health
 	playerHealthLabel = new JLabel(String.valueOf(currentPlayerHealth)+"/10 HP");
@@ -148,6 +148,7 @@ public class GameState implements ActionListener {
 		HEALTH_WIDTH, 
 		HEALTH_HEIGHT
 	);
+	playerHealthLabel.setForeground(Color.WHITE);
 	scenePanel.add(playerHealthLabel);
 	
 	//enemy health
@@ -163,12 +164,14 @@ public class GameState implements ActionListener {
 		HEALTH_WIDTH, 
 		HEALTH_HEIGHT
 	);
+	enemyHealthLabel.setForeground(Color.WHITE);
 	scenePanel.add(enemyHealthLabel);
 	
 	//timer
 	timer = new JLabel(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60));
 	timer.setBounds(TIMER_X, TIMER_Y, TIMER_WIDTH, TIMER_HEIGHT);
 	timer.setFont(new Font("Arial", Font.BOLD, 18));
+	timer.setForeground(Color.WHITE);
 	scenePanel.add(timer);
 	
 	//level panel
@@ -242,6 +245,8 @@ public class GameState implements ActionListener {
     }
             
     public void tick() {
+		scenePanel.revalidate();
+		scenePanel.repaint();
 		timeElapsed++;
 		
 		if(timeElapsed%60 == 0 && !isPaused) {
