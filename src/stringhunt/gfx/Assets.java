@@ -71,7 +71,7 @@ public class Assets {
 	btn_pause[1] = ImageLoader.loadImage("/ui/button_pause_1.png");
 	btn_refresh = ImageLoader.loadImage("/ui/btn_refresh.png");
 	btn_refresh_pressed = ImageLoader.loadImage("/ui/btn_refresh_pressed.png");
-	scene_panel_bg = ImageLoader.loadImage("ui/scene_panel_bg.jpg");
+	scene_panel_bg = ImageLoader.loadImage("/ui/scene.jpg");
 
 	//credits assets
 	credits_background = ImageLoader.loadImage("/ui/credits.jpg");
