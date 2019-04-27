@@ -573,7 +573,7 @@ public class Words {
 	    "SCAREWARE",
 	    "SCHEMA",
 	    "SCRAPING",
-	    "SCREEN ",
+	    "SCREEN",
 	    "SCREENSHOT",
 	    "SCRIPT",
 	    "SCROLL",
