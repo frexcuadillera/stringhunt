@@ -104,147 +104,148 @@ public class GameState implements ActionListener {
     private Thread gameOverThread;
 
     public GameState() {
-	init();
+		init();
     }
     
     public void init(){
-	gamePanel = new JPanel();
-	gamePanel.setLayout(null);
-	gamePanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
-	gamePanel.setBackground(Color.decode("#ACFFFF"));
-	
-	//game over thread
-	gameOverThread = new Thread() {
-	    public void run() {
-	        gameOver();
-	    }  
-	};
-
-	//letter panel
-	letterPanelConstructor = new LetterPanel();
-	letterPanelObject = letterPanelConstructor.getLetterPanel();	
-	letterPanelObject.setBounds(
-		LETTER_PANEL_OBJECT_X, 
-		LETTER_PANEL_OBJECT_Y, 
-		LETTER_PANEL_WIDTH, 
-		LETTER_PANEL_HEIGHT
-	);
-	
-	//scene panel
-	scenePanel = new ScenePanel();
-	scenePanel.setLayout(null);
-	scenePanel.setBounds(
-		SCENE_PANEL_OBJECT_X, 
-		SCENE_PANEL_OBJECT_Y, 
-		SCENE_PANEL_WIDTH, 
-		SCENE_PANEL_HEIGHT
-	);	
-	
-	//player health
-	playerHealthLabel = new JLabel(String.valueOf(currentPlayerHealth)+"/10 HP");
-	playerHealthLabel.setBounds(
-		PLAYER_HEALTH_X, 
-		PLAYER_HEALTH_Y, 
-		HEALTH_WIDTH, 
-		HEALTH_HEIGHT
-	);
-	playerHealthLabel.setForeground(Color.WHITE);
-	scenePanel.add(playerHealthLabel);
-	
-	//enemy health
-	enemyHealthLabel = new JLabel(
-		String.valueOf(currentEnemyHealth) +
-		"/" +
-		(10 + ((currentEnemy - 1) * 5)) +
-		" HP"
-	);
-	enemyHealthLabel.setBounds(
-		ENEMY_HEALTH_X, 
-		ENEMY_HEALTH_Y,
-		HEALTH_WIDTH, 
-		HEALTH_HEIGHT
-	);
-	enemyHealthLabel.setForeground(Color.WHITE);
-	scenePanel.add(enemyHealthLabel);
-	
-	//timer
-	timer = new JLabel(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60));
-	timer.setBounds(TIMER_X, TIMER_Y, TIMER_WIDTH, TIMER_HEIGHT);
-	timer.setFont(new Font("Arial", Font.BOLD, 18));
-	timer.setForeground(Color.WHITE);
-	scenePanel.add(timer);
-	
-	//level panel
-	levelPanel = new JLabel();
-	levelPanel.setBounds(
-		LEVEL_X,
-		LEVEL_Y,
-		LEVEL_WIDTH,
-		LEVEL_HEIGHT
-	);
-	gamePanel.add(levelPanel);
+		gamePanel = new JPanel();
+		gamePanel.setLayout(null);
+		gamePanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
+		gamePanel.setBackground(Color.decode("#ACFFFF"));
 		
-	//text field
-	textField = new JTextField(TEXT_FIELD_COLUMNS);
-	textField.setBounds(
-		TEXT_FIELD_X,
-		TEXT_FIELD_Y,
-		TEXT_FIELD_WIDTH,
-		TEXT_FIELD_HEIGHT
-	);
-	textField.setFont(new Font("Arial", Font.BOLD, 18));
-	textField.setEditable(false);
-	textField.setBorder(BorderFactory.createLineBorder(Color.decode("#2C6791")));
-	textField.addActionListener(this);
-	textField.setText(null);
-	
-	//refresh button
-	refreshButton = new JButton();
-	refreshButton.addActionListener(this);
-	refreshButton.setBounds(
-		REFRESH_BUTTON_X,
-		REFRESH_BUTTON_Y,
-		REFRESH_BUTTON_WIDTH,
-		REFRESH_BUTTON_HEIGHT
-	);
-	refreshButton.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
-	refreshButton.setIcon(new ImageIcon(Assets.btn_refresh));
-	refreshButton.setPressedIcon(new ImageIcon(Assets.btn_refresh_pressed));
-	//letter damage calculator 
-	ldc = new LetterDamageCalculator();
-	
-	//reset button
-	resetButton = new JButton();
-	resetButton.addActionListener(this);
-	resetButton.setBounds(X - 250, Y, WIDTH, HEIGHT);
-	resetButton.setIcon(new ImageIcon(Assets.btn_reset[0]));
-	resetButton.setPressedIcon(new ImageIcon(Assets.btn_reset[1]));
-	
-	//attack button
-	attackButton = new JButton();
-	attackButton.addActionListener(this);
-	attackButton.setBounds(X, Y, WIDTH, HEIGHT);
-	attackButton.setIcon(new ImageIcon(Assets.btn_attack[0]));
-	attackButton.setPressedIcon(new ImageIcon(Assets.btn_attack[1]));
-	
-	//menu button
-	pauseButton = new JButton();
-	pauseButton.addActionListener(this);
-	pauseButton.setBounds(X + 250, Y, WIDTH, HEIGHT);
-	pauseButton.setIcon(new ImageIcon(Assets.btn_pause[0]));
-	pauseButton.setPressedIcon(new ImageIcon(Assets.btn_pause[1]));
+		//game over thread
+		gameOverThread = new Thread() {
+		    public void run() {
+		        gameOver();
+		    }  
+		};
 
-	//add to game panel
-	gamePanel.add(scenePanel);
-	gamePanel.add(letterPanelObject);
-	gamePanel.add(textField);
-	gamePanel.add(refreshButton);
-	gamePanel.add(resetButton);
-	gamePanel.add(attackButton);
-	gamePanel.add(pauseButton);	
+		//letter panel
+		letterPanelConstructor = new LetterPanel();
+		letterPanelObject = letterPanelConstructor.getLetterPanel();	
+		letterPanelObject.setBounds(
+			LETTER_PANEL_OBJECT_X, 
+			LETTER_PANEL_OBJECT_Y, 
+			LETTER_PANEL_WIDTH, 
+			LETTER_PANEL_HEIGHT
+		);
+		
+		//scene panel
+		scenePanel = new ScenePanel();
+		scenePanel.setLayout(null);
+		scenePanel.setBounds(
+			SCENE_PANEL_OBJECT_X, 
+			SCENE_PANEL_OBJECT_Y, 
+			SCENE_PANEL_WIDTH, 
+			SCENE_PANEL_HEIGHT
+		);	
+		
+		//player health
+		playerHealthLabel = new JLabel(String.valueOf(currentPlayerHealth)+"/10 HP");
+		playerHealthLabel.setBounds(
+			PLAYER_HEALTH_X, 
+			PLAYER_HEALTH_Y, 
+			HEALTH_WIDTH, 
+			HEALTH_HEIGHT
+		);
+		playerHealthLabel.setForeground(Color.WHITE);
+		scenePanel.add(playerHealthLabel);
+		
+		//enemy health
+		enemyHealthLabel = new JLabel(
+			String.valueOf(currentEnemyHealth) +
+			"/" +
+			(10 + ((currentEnemy - 1) * 5)) +
+			" HP"
+		);
+		enemyHealthLabel.setBounds(
+			ENEMY_HEALTH_X, 
+			ENEMY_HEALTH_Y,
+			HEALTH_WIDTH, 
+			HEALTH_HEIGHT
+		);
+		enemyHealthLabel.setForeground(Color.WHITE);
+		scenePanel.add(enemyHealthLabel);
+		
+		//timer
+		timer = new JLabel(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60));
+		timer.setBounds(TIMER_X, TIMER_Y, TIMER_WIDTH, TIMER_HEIGHT);
+		timer.setFont(new Font("Arial", Font.BOLD, 18));
+		timer.setForeground(Color.WHITE);
+		scenePanel.add(timer);
+		
+		//level panel
+		levelPanel = new JLabel();
+		levelPanel.setBounds(
+			LEVEL_X,
+			LEVEL_Y,
+			LEVEL_WIDTH,
+			LEVEL_HEIGHT
+		);
+		gamePanel.add(levelPanel);
+			
+		//text field
+		textField = new JTextField(TEXT_FIELD_COLUMNS);
+		textField.setBounds(
+			TEXT_FIELD_X,
+			TEXT_FIELD_Y,
+			TEXT_FIELD_WIDTH,
+			TEXT_FIELD_HEIGHT
+		);
+		textField.setFont(new Font("Arial", Font.BOLD, 18));
+		textField.setEditable(false);
+		textField.setBorder(BorderFactory.createLineBorder(Color.decode("#2C6791")));
+		textField.addActionListener(this);
+		textField.setText(null);
+		
+		//refresh button
+		refreshButton = new JButton();
+		refreshButton.addActionListener(this);
+		refreshButton.setBounds(
+			REFRESH_BUTTON_X,
+			REFRESH_BUTTON_Y,
+			REFRESH_BUTTON_WIDTH,
+			REFRESH_BUTTON_HEIGHT
+		);
+		refreshButton.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+		refreshButton.setIcon(new ImageIcon(Assets.btn_refresh));
+		refreshButton.setPressedIcon(new ImageIcon(Assets.btn_refresh_pressed));
+		//letter damage calculator 
+		ldc = new LetterDamageCalculator();
+		
+		//reset button
+		resetButton = new JButton();
+		resetButton.addActionListener(this);
+		resetButton.setBounds(X - 250, Y, WIDTH, HEIGHT);
+		resetButton.setIcon(new ImageIcon(Assets.btn_reset[0]));
+		resetButton.setPressedIcon(new ImageIcon(Assets.btn_reset[1]));
+		
+		//attack button
+		attackButton = new JButton();
+		attackButton.addActionListener(this);
+		attackButton.setBounds(X, Y, WIDTH, HEIGHT);
+		attackButton.setIcon(new ImageIcon(Assets.btn_attack[0]));
+		attackButton.setPressedIcon(new ImageIcon(Assets.btn_attack[1]));
+		
+		//menu button
+		pauseButton = new JButton();
+		pauseButton.addActionListener(this);
+		pauseButton.setBounds(X + 250, Y, WIDTH, HEIGHT);
+		pauseButton.setIcon(new ImageIcon(Assets.btn_pause[0]));
+		pauseButton.setPressedIcon(new ImageIcon(Assets.btn_pause[1]));
+
+		//add to game panel
+		gamePanel.add(scenePanel);
+		gamePanel.add(letterPanelObject);
+		gamePanel.add(textField);
+		gamePanel.add(refreshButton);
+		gamePanel.add(resetButton);
+		gamePanel.add(attackButton);
+		gamePanel.add(pauseButton);	
     }
             
     public void tick() {
+
 		scenePanel.revalidate();
 		scenePanel.repaint();
 		timeElapsed++;
@@ -329,15 +330,9 @@ public class GameState implements ActionListener {
 		    letterPanelConstructor.updateBoard(currentLevel);
 		    
 		    if(currentPlayerHealth <= 0) {
-				//do game over event here
-				playerHealthLabel.setText("0/10 HP");
-				//add delay
-				
+
+				playerHealthLabel.setText("0/10 HP");				
 				gameOver();
-				
-				//scenePanel.setVisible(false);
-				//textField.setVisible(false);
-				//letterPanelObject.setVisible(false);
 			
 		    }
 		    
@@ -434,13 +429,13 @@ public class GameState implements ActionListener {
     }
     
     public void restartGame() {
-	currentLevel = 1;
-	currentEnemy = 1;
-	currentTime = 300;
-	currentPlayerHealth = 10;
-	currentEnemyHealth = 10;
-	updatePlayerHealthLabel();
-	updateEnemyHealthLabel();
+		currentLevel = 1;
+		currentEnemy = 1;
+		currentTime = 300;
+		currentPlayerHealth = 10;
+		currentEnemyHealth = 10;
+		updatePlayerHealthLabel();
+		updateEnemyHealthLabel();
     }
     
     public void gameOver() {
