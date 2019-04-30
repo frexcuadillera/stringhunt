@@ -61,6 +61,9 @@ public class Assets {
     public static BufferedImage[] btn_letters;
     public static BufferedImage[] btn_letters_active;
     
+    //tutorial
+    public static BufferedImage tutorial_background;
+    
     //description
     public static BufferedImage description_background;
     
@@ -78,7 +81,6 @@ public class Assets {
 	btn_credits = new BufferedImage[2];
 	btn_quit = new BufferedImage[2];
 	btn_back = new BufferedImage[2];
-	
 	
 	//game assets
 	btn_reset = new BufferedImage[2]; //test
@@ -118,11 +120,7 @@ public class Assets {
 	enemy_53 = new BufferedImage[1];
 	enemy_54 = new BufferedImage[1];
 	enemy_55 = new BufferedImage[1];
-	
-	//load image here
-	//testImage = ImageLoader.loadImage("/textures/test.jpg");
-	
-	
+		
 	// main menu assets
 	btn_start[0] = ImageLoader.loadImage("/ui/button_start_0.png");
 	btn_start[1] = ImageLoader.loadImage("/ui/button_start_1.png");
@@ -158,66 +156,49 @@ public class Assets {
 	//lvl1
 	enemy_11[0] = ImageLoader.loadImage("/characters/11_0.png");
 	enemy_11[1] = ImageLoader.loadImage("/characters/11_1.png");
-	
 	enemy_12[0] = ImageLoader.loadImage("/characters/12_0.png");
 	enemy_12[1] = ImageLoader.loadImage("/characters/12_1.png");
-	
 	enemy_13[0] = ImageLoader.loadImage("/characters/13_0.png");
 	enemy_13[1] = ImageLoader.loadImage("/characters/13_1.png");
-	
 	enemy_14[0] = ImageLoader.loadImage("/characters/14_0.png");
 	enemy_14[1] = ImageLoader.loadImage("/characters/14_1.png");
-	
 	enemy_15[0] = ImageLoader.loadImage("/characters/15.png");
 	
 	//lvl2
 	enemy_21[0] = ImageLoader.loadImage("/characters/21_0.png");
 	enemy_21[1] = ImageLoader.loadImage("/characters/21_1.png");
 	enemy_21[2]= ImageLoader.loadImage("/characters/21_2.png");
-	
 	enemy_22[0]= ImageLoader.loadImage("/characters/22.png");
-	
 	enemy_23[0]= ImageLoader.loadImage("/characters/23.png");
-	
 	enemy_24[0] = ImageLoader.loadImage("/characters/12_0.png");
 	enemy_24[1] = ImageLoader.loadImage("/characters/12_1.png");
-	
 	enemy_25[0] = ImageLoader.loadImage("/characters/25.png");
 	
 	//lvl3
 	enemy_31[0] = ImageLoader.loadImage("/characters/12_0.png");
 	enemy_31[1] = ImageLoader.loadImage("/characters/12_1.png");
-	
 	enemy_32[0] = ImageLoader.loadImage("/characters/32.png");
-	
 	enemy_33[0] = ImageLoader.loadImage("/characters/33.png");
-	
 	enemy_34[0] = ImageLoader.loadImage("/characters/34.png");
-	
 	enemy_35[0] = ImageLoader.loadImage("/characters/35.png");
 	
 	//lvl4
-	enemy_41[0] = ImageLoader.loadImage("/characters/41.png");
-	
-	enemy_42[0] = ImageLoader.loadImage("/characters/42.png");
-	
-	enemy_43[0] = ImageLoader.loadImage("/characters/43.png");
-	
-	enemy_44[0] = ImageLoader.loadImage("/characters/44.png");
-	
+	enemy_41[0] = ImageLoader.loadImage("/characters/41.png");	
+	enemy_42[0] = ImageLoader.loadImage("/characters/42.png");	
+	enemy_43[0] = ImageLoader.loadImage("/characters/43.png");	
+	enemy_44[0] = ImageLoader.loadImage("/characters/44.png");	
 	enemy_45[0] = ImageLoader.loadImage("/characters/45.png");
 	
 	//lvl5
-	enemy_51[0] = ImageLoader.loadImage("/characters/15.png");
-	
-	enemy_52[0] = ImageLoader.loadImage("/characters/25.png");
-	
-	enemy_53[0] = ImageLoader.loadImage("/characters/35.png");
-	
-	enemy_54[0] = ImageLoader.loadImage("/characters/45.png");
-	
+	enemy_51[0] = ImageLoader.loadImage("/characters/15.png");	
+	enemy_52[0] = ImageLoader.loadImage("/characters/25.png");	
+	enemy_53[0] = ImageLoader.loadImage("/characters/35.png");	
+	enemy_54[0] = ImageLoader.loadImage("/characters/45.png");	
 	enemy_55[0] = ImageLoader.loadImage("/characters/55.png");
 
+	//tutorial
+	tutorial_background = ImageLoader.loadImage("/ui/tutorial.png");
+	
 	//description
 	description_background = ImageLoader.loadImage("/ui/description.png");
 	

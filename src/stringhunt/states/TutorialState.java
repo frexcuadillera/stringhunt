@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import stringhunt.StringHunt;
@@ -14,6 +15,7 @@ import stringhunt.gfx.Assets;
 public class TutorialState implements ActionListener {
 
     private JPanel tutorialPanel;
+    private JLabel tutorialLabel;
     
     private JButton backButton;
     private final int BACK_X = 20;
@@ -35,6 +37,12 @@ public class TutorialState implements ActionListener {
 		
 		tutorialPanel.add(backButton);
 		backButton.addActionListener(this);
+		
+		tutorialLabel = new JLabel(
+			new ImageIcon(Assets.tutorial_background)
+		);
+		tutorialLabel.setBounds(0, 0, 800, 600);
+		tutorialPanel.add(tutorialLabel);
     }
     
     public JPanel getTutorialPanel() {

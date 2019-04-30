@@ -329,7 +329,8 @@ public class GameState implements ActionListener {
 		    
 	    if(currentPlayerHealth <= 0) {
 
-		playerHealthLabel.setText("0/10 HP");				
+		playerHealthLabel.setText("0/10 HP");
+		isPaused = true;
 		gameOver();
 			
 	    }
@@ -348,14 +349,10 @@ public class GameState implements ActionListener {
 		if(currentLevel > 5) {
 		    //game over, you win!
 		    //do win event here
-		    gameOver();
 		    enemyHealthLabel.setText("0/10 HP");
-		    System.out.println("graduate");
+		    gameOver();
 		}
 				
-
-		//do enemy die event here
-
 		//reset timer
 		currentTime = 300 + ( 180 * (currentLevel - 1));
 		timer.setText(
@@ -464,13 +461,16 @@ public class GameState implements ActionListener {
 	);
 		
 	if(gameOverValue == JOptionPane.YES_OPTION) {
+	    isPaused = false;
 	    restartGame();		    
 	} else if (gameOverValue == JOptionPane.NO_OPTION) {
 	    StringHunt.state = "menu";
+	    isPaused = false;
 	    isGameOver = false;
 	    restartGame();
 	} else {
 	    StringHunt.state = "menu";
+	    isPaused = false;
 	    isGameOver = false;
 	    restartGame();
 	}
