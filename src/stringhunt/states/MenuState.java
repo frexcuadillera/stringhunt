@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import stringhunt.StringHunt;
@@ -15,11 +16,17 @@ public class MenuState implements ActionListener {
     
     private JPanel menuPanel;
     
+    private JLabel title;
     private JButton startButton;
     private JButton tutorialButton;
     private JButton descriptionButton;
     private JButton creditsButton;
     
+    private final int TITLE_X = 187;
+    private final int TITLE_Y = 30;
+    private final int TITLE_WIDTH = 426;
+    private final int TITLE_HEIGHT = 84;
+       
     private final int X_POSITION = 300;
     private final int Y_POSITION = 150;
     private final int Y_OFFSET = 60;
@@ -32,7 +39,17 @@ public class MenuState implements ActionListener {
 		menuPanel.setLayout(null);
 		menuPanel.setBounds(0, 0, 800, 450);
 		menuPanel.setBackground(Color.decode("#ACFFFF"));
-			
+		
+		//title
+		title = new JLabel();
+		title.setIcon(new ImageIcon(Assets.title));
+		title.setBounds(
+			TITLE_X, 
+			TITLE_Y, 
+			TITLE_WIDTH, 
+			TITLE_HEIGHT
+		);
+		
 		//buttons
 		startButton = new JButton();
 		tutorialButton = new JButton();
@@ -54,6 +71,7 @@ public class MenuState implements ActionListener {
 		descriptionButton.setPressedIcon(new ImageIcon(Assets.btn_description[1]));
 		creditsButton.setPressedIcon(new ImageIcon(Assets.btn_credits[1]));	
 		
+		menuPanel.add(title);
 		menuPanel.add(startButton);
 		menuPanel.add(tutorialButton);
 		menuPanel.add(descriptionButton);
