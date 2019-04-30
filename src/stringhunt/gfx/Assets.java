@@ -22,6 +22,9 @@ public class Assets {
     public static BufferedImage btn_refresh_pressed;
     public static BufferedImage scene_panel_bg;
     
+    //player
+    public static BufferedImage[] player;
+    
     //enemies
     public static BufferedImage[] enemy_11;
     public static BufferedImage[] enemy_12;
@@ -78,15 +81,40 @@ public class Assets {
 		btn_attack = new BufferedImage[2];
 		btn_pause = new BufferedImage[2];
 		
+		//player
+		player = new BufferedImage[2];
+		
+		//enemy array
 		enemy_11 = new BufferedImage[2];
 		enemy_12 = new BufferedImage[2];
 		enemy_13 = new BufferedImage[2];
-		
+		enemy_14 = new BufferedImage[2];
 		enemy_15 = new BufferedImage[1];
+		
+		enemy_21 = new BufferedImage[3];
+		enemy_22 = new BufferedImage[1];
+		enemy_23 = new BufferedImage[1];
+		enemy_24 = new BufferedImage[2];
 		enemy_25 = new BufferedImage[1];
+		
+		enemy_31 = new BufferedImage[2];
+		enemy_32 = new BufferedImage[1];
+		enemy_33 = new BufferedImage[1];
+		enemy_34 = new BufferedImage[1];
 		enemy_35 = new BufferedImage[1];
+		
+		enemy_41 = new BufferedImage[1];
+		enemy_42 = new BufferedImage[1];
+		enemy_43 = new BufferedImage[1];
+		enemy_44 = new BufferedImage[1];
 		enemy_45 = new BufferedImage[1];
+		
+		enemy_51 = new BufferedImage[1];
+		enemy_52 = new BufferedImage[1];
+		enemy_53 = new BufferedImage[1];
+		enemy_54 = new BufferedImage[1];
 		enemy_55 = new BufferedImage[1];
+		
 		//load image here
 		//testImage = ImageLoader.loadImage("/textures/test.jpg");
 		
@@ -117,18 +145,72 @@ public class Assets {
 		btn_refresh_pressed = ImageLoader.loadImage("/ui/btn_refresh_pressed.png");
 		scene_panel_bg = ImageLoader.loadImage("/ui/scene.jpg");
 		
+		//player
+		player[0] = ImageLoader.loadImage("/characters/player_0.png");
+		player[1] = ImageLoader.loadImage("/characters/player_1.png");
+		
 		//enemy animations
+		//lvl1
 		enemy_11[0] = ImageLoader.loadImage("/characters/11_0.png");
 		enemy_11[1] = ImageLoader.loadImage("/characters/11_1.png");
+		
 		enemy_12[0] = ImageLoader.loadImage("/characters/12_0.png");
 		enemy_12[1] = ImageLoader.loadImage("/characters/12_1.png");
+		
 		enemy_13[0] = ImageLoader.loadImage("/characters/13_0.png");
 		enemy_13[1] = ImageLoader.loadImage("/characters/13_1.png");
 		
+		enemy_14[0] = ImageLoader.loadImage("/characters/14_0.png");
+		enemy_14[1] = ImageLoader.loadImage("/characters/14_1.png");
+		
 		enemy_15[0] = ImageLoader.loadImage("/characters/15.png");
+		
+		//lvl2
+		enemy_21[0] = ImageLoader.loadImage("/characters/21_0.png");
+		enemy_21[1] = ImageLoader.loadImage("/characters/21_1.png");
+		enemy_21[2]= ImageLoader.loadImage("/characters/21_2.png");
+		
+		enemy_22[0]= ImageLoader.loadImage("/characters/22.png");
+		
+		enemy_23[0]= ImageLoader.loadImage("/characters/23.png");
+		
+		enemy_24[0] = ImageLoader.loadImage("/characters/12_0.png");
+		enemy_24[1] = ImageLoader.loadImage("/characters/12_1.png");
+		
 		enemy_25[0] = ImageLoader.loadImage("/characters/25.png");
+		
+		//lvl3
+		enemy_31[0] = ImageLoader.loadImage("/characters/12_0.png");
+		enemy_31[1] = ImageLoader.loadImage("/characters/12_1.png");
+		
+		enemy_32[0] = ImageLoader.loadImage("/characters/32.png");
+		
+		enemy_33[0] = ImageLoader.loadImage("/characters/33.png");
+		
+		enemy_34[0] = ImageLoader.loadImage("/characters/34.png");
+		
 		enemy_35[0] = ImageLoader.loadImage("/characters/35.png");
+		
+		//lvl4
+		enemy_41[0] = ImageLoader.loadImage("/characters/41.png");
+		
+		enemy_42[0] = ImageLoader.loadImage("/characters/42.png");
+		
+		enemy_43[0] = ImageLoader.loadImage("/characters/43.png");
+		
+		enemy_44[0] = ImageLoader.loadImage("/characters/44.png");
+		
 		enemy_45[0] = ImageLoader.loadImage("/characters/45.png");
+		
+		//lvl5
+		enemy_51[0] = ImageLoader.loadImage("/characters/15.png");
+		
+		enemy_52[0] = ImageLoader.loadImage("/characters/25.png");
+		
+		enemy_53[0] = ImageLoader.loadImage("/characters/35.png");
+		
+		enemy_54[0] = ImageLoader.loadImage("/characters/45.png");
+		
 		enemy_55[0] = ImageLoader.loadImage("/characters/55.png");
 
 		//credits assets

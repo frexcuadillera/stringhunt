@@ -1,3 +1,0 @@
-sed 's/\(.*\)/"\1",/g' output.txt
-
-sort output.txt
