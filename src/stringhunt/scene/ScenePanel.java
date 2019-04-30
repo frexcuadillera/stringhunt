@@ -14,6 +14,8 @@ public class ScenePanel extends JPanel {
     private final int ENEMY_X = 480;
     private final int ENEMY_Y = 30;
     
+    private Animation player;
+    
     private Animation a11;
     private Animation a12;
     private Animation a13;
@@ -46,138 +48,155 @@ public class ScenePanel extends JPanel {
     
     public ScenePanel() {
 	
-		a11 = new Animation(500, Assets.enemy_11);
-		a12 = new Animation(500, Assets.enemy_12);
-		a13 = new Animation(500, Assets.enemy_13);
+	a11 = new Animation(500, Assets.enemy_11);
+	a12 = new Animation(500, Assets.enemy_12);
+	a13 = new Animation(500, Assets.enemy_13);
+	
+	a15 = new Animation(500, Assets.enemy_15);
+	
+	a25 = new Animation(500, Assets.enemy_25);
+	
+	a35 = new Animation(500, Assets.enemy_35);
+	
+	a45 = new Animation(500, Assets.enemy_45);
+	
+	a55 = new Animation(500, Assets.enemy_55);
 	
     }
     
     @Override
     protected void paintComponent(Graphics g) {
 	
-		super.paintComponent(g);
-		g.drawImage(Assets.scene_panel_bg, 0, 0, null);	
+	super.paintComponent(g);
+	g.drawImage(Assets.scene_panel_bg, 0, 0, null);	
 		
-		if(GameState.currentLevel == 1) {
+	if(GameState.currentLevel == 1) {
 		    
-		    if(GameState.currentEnemy == 1) {
-				g.drawImage(a11.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
-				a11.tick();
-		    }
+	    if(GameState.currentEnemy == 1) {
+		g.drawImage(a11.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
+		a11.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 2) {
-				g.drawImage(a12.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
-				a12.tick();
-		    }
+	    if(GameState.currentEnemy == 2) {
+		g.drawImage(a12.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
+		a12.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 3) {
-				g.drawImage(a13.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
-				a13.tick();
-		    }
+	    if(GameState.currentEnemy == 3) {
+		g.drawImage(a13.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
+		a13.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 4) {
-			a14.tick();
-		    }
+	    if(GameState.currentEnemy == 4) {
+		a14.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 5) {
-			a15.tick();
-		    }
+	    if(GameState.currentEnemy == 5) {
+		g.drawImage(a15.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
+		a15.tick();
+	    }
 
-		}
+	}
 		
-		if(GameState.currentLevel == 2) {
+	if(GameState.currentLevel == 2) {
 		    
-		    if(GameState.currentEnemy == 1) {
-			a21.tick();
-		    }
+	    if(GameState.currentEnemy == 1) {
+		a21.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 2) {
-			a22.tick();
-		    }
+	    if(GameState.currentEnemy == 2) {
+		a22.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 3) {
-			a23.tick();
-		    }
+	    if(GameState.currentEnemy == 3) {
+		a23.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 4) {
-			a24.tick();
-		    }
+	    if(GameState.currentEnemy == 4) {
+		a24.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 5) {
-			a25.tick();
-		    }
+	    if(GameState.currentEnemy == 5) {
+		g.drawImage(a25.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
+		a25.tick();
+	    }
 		    
-		}
+	}
 		
-		if(GameState.currentLevel == 3) {
+	if(GameState.currentLevel == 3) {
 		    
-		    if(GameState.currentEnemy == 1) {
-			a31.tick();
-		    }
+	    if(GameState.currentEnemy == 1) {
+		a31.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 2) {
-			a32.tick();
-		    }
+	    if(GameState.currentEnemy == 2) {
+		a32.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 3) {
-			a33.tick();
-		    }
+	    if(GameState.currentEnemy == 3) {
+		a33.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 4) {
-			a34.tick();
-		    }
+	    if(GameState.currentEnemy == 4) {
+		a34.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 5) {
-			a35.tick();
-		    }
+	    if(GameState.currentEnemy == 5) {
+		g.drawImage(a35.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
+		a35.tick();
+	    }
 		    
-		}
+	}
 		
-		if(GameState.currentLevel == 4) {
-		    if(GameState.currentEnemy == 1) {
-			a41.tick();
-		    }
+	if(GameState.currentLevel == 4) {
+	    
+	    if(GameState.currentEnemy == 1) {
+		a41.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 2) {
-			a42.tick();
-		    }
+	    if(GameState.currentEnemy == 2) {
+		a42.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 3) {
-			a43.tick();
-		    }
+	    if(GameState.currentEnemy == 3) {
+		a43.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 4) {
-			a44.tick();
-		    }
+	    if(GameState.currentEnemy == 4) {
+		a44.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 5) {
-			a45.tick();
-		    }
+	    if(GameState.currentEnemy == 5) {
+		g.drawImage(a45.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
+		a45.tick();
+	    }
 		    
-		}
+	}
 		
-		if(GameState.currentLevel == 5) {
-		    if(GameState.currentEnemy == 1) {
-			a51.tick();
-		    }
+	if(GameState.currentLevel == 5) {
+	    
+	    if(GameState.currentEnemy == 1) {
+		a51.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 2) {
-			a52.tick();
-		    }
+	    if(GameState.currentEnemy == 2) {
+		a52.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 3) {
-			a53.tick();
-		    }
+	    if(GameState.currentEnemy == 3) {
+		a53.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 4) {
-			a54.tick();
-		    }
+	    if(GameState.currentEnemy == 4) {
+		a54.tick();
+	    }
 		    
-		    if(GameState.currentEnemy == 5) {
-			a55.tick();
-		    }
+	    if(GameState.currentEnemy == 5) {
+		g.drawImage(a55.getCurrentFrame(), ENEMY_X, ENEMY_Y, null);
+		a55.tick();
+	    }
 		    
-		}
+	}
 		
     }
     

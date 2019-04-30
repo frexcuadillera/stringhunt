@@ -92,8 +92,8 @@ public class GameState implements ActionListener {
     private int currentPlayerHealth = 10; //10
     private int currentEnemyHealth = 10;
     
-    public static int currentEnemy = 1; //1
-    public static int currentLevel = 1; //1
+    public static int currentEnemy = 5; //1
+    public static int currentLevel = 3; //1
     
     private int currentTime = 300; //300
     private int timeElapsed = 0;
@@ -104,21 +104,21 @@ public class GameState implements ActionListener {
     private Thread gameOverThread;
 
     public GameState() {
-		init();
+	init();
     }
     
     public void init(){
-		gamePanel = new JPanel();
-		gamePanel.setLayout(null);
-		gamePanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
-		gamePanel.setBackground(Color.decode("#ACFFFF"));
+	gamePanel = new JPanel();
+	gamePanel.setLayout(null);
+	gamePanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
+	gamePanel.setBackground(Color.decode("#ACFFFF"));
 		
 		//game over thread
-		gameOverThread = new Thread() {
-		    public void run() {
-		        gameOver();
-		    }  
-		};
+	gameOverThread = new Thread() {
+	    public void run() {
+		gameOver();
+	    }  
+	};
 
 		//letter panel
 		letterPanelConstructor = new LetterPanel();

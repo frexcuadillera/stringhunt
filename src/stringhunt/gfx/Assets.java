@@ -81,6 +81,12 @@ public class Assets {
 		enemy_11 = new BufferedImage[2];
 		enemy_12 = new BufferedImage[2];
 		enemy_13 = new BufferedImage[2];
+		
+		enemy_15 = new BufferedImage[1];
+		enemy_25 = new BufferedImage[1];
+		enemy_35 = new BufferedImage[1];
+		enemy_45 = new BufferedImage[1];
+		enemy_55 = new BufferedImage[1];
 		//load image here
 		//testImage = ImageLoader.loadImage("/textures/test.jpg");
 		
@@ -118,6 +124,12 @@ public class Assets {
 		enemy_12[1] = ImageLoader.loadImage("/characters/12_1.png");
 		enemy_13[0] = ImageLoader.loadImage("/characters/13_0.png");
 		enemy_13[1] = ImageLoader.loadImage("/characters/13_1.png");
+		
+		enemy_15[0] = ImageLoader.loadImage("/characters/15.png");
+		enemy_25[0] = ImageLoader.loadImage("/characters/25.png");
+		enemy_35[0] = ImageLoader.loadImage("/characters/35.png");
+		enemy_45[0] = ImageLoader.loadImage("/characters/45.png");
+		enemy_55[0] = ImageLoader.loadImage("/characters/55.png");
 
 		//credits assets
 		credits_background = ImageLoader.loadImage("/ui/credits.jpg");
