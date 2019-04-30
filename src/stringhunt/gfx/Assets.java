@@ -61,6 +61,9 @@ public class Assets {
     public static BufferedImage[] btn_letters;
     public static BufferedImage[] btn_letters_active;
     
+    //description
+    public static BufferedImage description_background;
+    
     //credits
     public static BufferedImage credits_background;
     
@@ -215,7 +218,10 @@ public class Assets {
 	
 	enemy_55[0] = ImageLoader.loadImage("/characters/55.png");
 
-	//credits assets
+	//description
+	description_background = ImageLoader.loadImage("/ui/description.png");
+	
+	//credits
 	credits_background = ImageLoader.loadImage("/ui/credits.jpg");
 	
     }

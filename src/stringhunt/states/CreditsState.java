@@ -25,21 +25,21 @@ public class CreditsState implements ActionListener{
        
     public CreditsState() {
 	
-		creditsPanel = new JPanel();
-		creditsPanel.setLayout(null);
-		creditsPanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
-		creditsPanel.setBackground(Color.decode("#ACFFFF"));
+	creditsPanel = new JPanel();
+	creditsPanel.setLayout(null);
+	creditsPanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
+	creditsPanel.setBackground(Color.decode("#ACFFFF"));
 			
-		backButton = new JButton();	
-		backButton.setBounds(BACK_X, BACK_Y, BACK_WIDTH, BACK_HEIGHT);
-		backButton.setIcon(new ImageIcon(Assets.btn_back[0]));
-		backButton.setPressedIcon(new ImageIcon(Assets.btn_back[1]));
-		creditsPanel.add(backButton);
-		backButton.addActionListener(this);
+	backButton = new JButton();	
+	backButton.setBounds(BACK_X, BACK_Y, BACK_WIDTH, BACK_HEIGHT);
+	backButton.setIcon(new ImageIcon(Assets.btn_back[0]));
+	backButton.setPressedIcon(new ImageIcon(Assets.btn_back[1]));
+	creditsPanel.add(backButton);
+	backButton.addActionListener(this);
 		
-		creditsLabel = new JLabel(new ImageIcon(Assets.credits_background));
-		creditsLabel.setBounds(0,0,800,600);
-		creditsPanel.add(creditsLabel);
+	creditsLabel = new JLabel(new ImageIcon(Assets.credits_background));
+	creditsLabel.setBounds(0,0,800,600);
+	creditsPanel.add(creditsLabel);
 	
     }
     
@@ -50,9 +50,9 @@ public class CreditsState implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 	
-		if(e.getSource() == backButton) {
-		    StringHunt.state = "menu";
-		}
+	if(e.getSource() == backButton) {
+	    StringHunt.state = "menu";
+	}
 	
     }
     
