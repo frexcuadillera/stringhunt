@@ -32,14 +32,14 @@ public class BoardGenerator {
 	    System.out.println(word32);
 	    System.out.println(word33);
 		    
-	    System.out.println(word31.length()+word32.length()+word33.length());
-		    
 	    while(word31.length()+word32.length()+word33.length() > 30) {
 		word31 = Words.wordArray[rn.nextInt(wordCount)];
 		word32 = Words.wordArray[rn.nextInt(wordCount)];
-		word33 = Words.wordArray[rn.nextInt(wordCount)];		
+		word33 = Words.wordArray[rn.nextInt(wordCount)];
 	    }
-		    
+	    
+	    System.out.println(word31.length()+word32.length()+word33.length());
+	    		    
 	    for(int i = 0; i < word31.length(); i++) {
 		generatedBoard[i] = word31.substring(i, i+1);
 	    }

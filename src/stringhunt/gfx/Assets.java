@@ -1,6 +1,12 @@
 package stringhunt.gfx;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
+import stringhunt.sfx.Sound;
 
 public class Assets {
         
@@ -69,9 +75,21 @@ public class Assets {
     
     //credits
     public static BufferedImage credits_background;
+       
+    //sounds
+    public static Sound bg;
     
     public static void init() {
 	
+	//sounds
+	bg = new Sound("assets/sfx/game.wav");
+	
+	try {
+	    bg.open();
+	} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+	    e.printStackTrace();
+	}
+		
 	//buffered image array
 	
 	//menu assets

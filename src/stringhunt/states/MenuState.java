@@ -81,6 +81,7 @@ public class MenuState implements ActionListener {
 		tutorialButton.addActionListener(this);
 		descriptionButton.addActionListener(this);
 		creditsButton.addActionListener(this);
+		
     }
     
     @Override
@@ -88,7 +89,7 @@ public class MenuState implements ActionListener {
 	
 		if(e.getSource() == startButton) {
 		    StringHunt.state = "game";
-		    GameState.isPaused = false;
+		    GameState.isPaused = false;		    
 		}
 		
 		if(e.getSource() == tutorialButton) {

@@ -134,8 +134,10 @@ public class StringHunt implements Runnable {
     }
     
     private void tick() {
+		
+	Assets.bg.loop();
 	
-	if(state == "game") {	    
+	if(state == "game") {
 	    cardLayout.show(cardPanel, "game");
 	    game.tick();
 	}
