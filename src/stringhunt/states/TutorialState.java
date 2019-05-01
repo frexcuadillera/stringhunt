@@ -25,40 +25,41 @@ public class TutorialState implements ActionListener {
 
     public TutorialState() {
 	
-		tutorialPanel = new JPanel();
-		tutorialPanel.setLayout(null);
-		tutorialPanel.setBounds(0 , 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
-		tutorialPanel.setBackground(Color.decode("#ACFFFF"));
+	tutorialPanel = new JPanel();
+	tutorialPanel.setLayout(null);
+	tutorialPanel.setBounds(
+		0, 
+		0, 
+		StringHunt.FRAME_WIDTH, 
+		StringHunt.FRAME_HEIGHT
+	);
+	tutorialPanel.setBackground(Color.decode("#ACFFFF"));
 		
-		backButton = new JButton();		
-		backButton.setBounds(BACK_X, BACK_Y, BACK_WIDTH, BACK_HEIGHT);
-		backButton.setIcon(new ImageIcon(Assets.btn_back[0]));
-		backButton.setPressedIcon(new ImageIcon(Assets.btn_back[1]));
+	backButton = new JButton();		
+	backButton.setBounds(BACK_X, BACK_Y, BACK_WIDTH, BACK_HEIGHT);
+	backButton.setIcon(new ImageIcon(Assets.btn_back[0]));
+	backButton.setPressedIcon(new ImageIcon(Assets.btn_back[1]));
 		
-		tutorialPanel.add(backButton);
-		backButton.addActionListener(this);
+	tutorialPanel.add(backButton);
+	backButton.addActionListener(this);
 		
-		tutorialLabel = new JLabel(
-			new ImageIcon(Assets.tutorial_background)
-		);
-		tutorialLabel.setBounds(0, 0, 800, 600);
-		tutorialPanel.add(tutorialLabel);
+	tutorialLabel = new JLabel(
+		new ImageIcon(Assets.tutorial_background)
+	);
+	tutorialLabel.setBounds(0, 0, 800, 600);
+	tutorialPanel.add(tutorialLabel);
     }
     
     public JPanel getTutorialPanel() {
-
         return tutorialPanel;
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 	
-		if(e.getSource() == backButton) {
-
-		    StringHunt.state = "menu";
-		    
-		}
+	if(e.getSource() == backButton) {
+	    StringHunt.state = "menu";    
+	}
 
     }
     

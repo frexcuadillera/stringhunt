@@ -6,4 +6,5 @@ public class StringHuntLaunch {
 	StringHunt stringhunt = new StringHunt();
 	stringhunt.start();
     }
+    
 }

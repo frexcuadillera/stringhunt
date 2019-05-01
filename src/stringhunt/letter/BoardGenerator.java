@@ -38,7 +38,8 @@ public class BoardGenerator {
 		word33 = Words.wordArray[rn.nextInt(wordCount)];
 	    }
 	    
-	    System.out.println(word31.length()+word32.length()+word33.length());
+	    System.out.println(
+		    word31.length()+word32.length()+word33.length());
 	    		    
 	    for(int i = 0; i < word31.length(); i++) {
 		generatedBoard[i] = word31.substring(i, i+1);
@@ -49,10 +50,13 @@ public class BoardGenerator {
 	    }
 		    
 	    for(int i = 0; i < word33.length(); i++) {
-		generatedBoard[i + word31.length() + word32.length()] = word33.substring(i, i+1);
+		generatedBoard[i + word31.length() + word32.length()] = 
+			word33.substring(i, i+1);
 	    }
 		    
-	    for(int i = word31.length()+word32.length()+word33.length(); i < 30; i++) {
+	    for(int i = word31.length()+word32.length()+word33.length(); 
+		    i < 30; 
+		    i++) {
 		generatedBoard[i] = lc.getLetter(rn.nextInt(26));
 	    }
 	}	

@@ -19,8 +19,12 @@ public class Sound {
     } 
     
     public void open() 
-    	throws LineUnavailableException, IOException, UnsupportedAudioFileException {
-    	audioInputStream = AudioSystem.getAudioInputStream(Sound.class.getResource(path)); 
+    	throws LineUnavailableException, 
+    	IOException, 
+    	UnsupportedAudioFileException {
+    	audioInputStream = AudioSystem.getAudioInputStream(
+    		Sound.class.getResource(path)
+    	); 
     	clip = AudioSystem.getClip(); 
     	clip.open(audioInputStream);
     }

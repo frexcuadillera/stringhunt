@@ -86,7 +86,10 @@ public class Assets {
 	
 	try {
 	    bg.open();
-	} catch (LineUnavailableException | IOException | UnsupportedAudioFileException e) {
+	} catch (LineUnavailableException | 
+		IOException | 
+		UnsupportedAudioFileException e
+		) {
 	    e.printStackTrace();
 	}
 		
@@ -101,7 +104,7 @@ public class Assets {
 	btn_back = new BufferedImage[2];
 	
 	//game assets
-	btn_reset = new BufferedImage[2]; //test
+	btn_reset = new BufferedImage[2];
 	btn_attack = new BufferedImage[2];
 	btn_pause = new BufferedImage[2];
 	

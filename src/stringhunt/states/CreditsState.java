@@ -27,7 +27,12 @@ public class CreditsState implements ActionListener{
 	
 	creditsPanel = new JPanel();
 	creditsPanel.setLayout(null);
-	creditsPanel.setBounds(0, 0, StringHunt.FRAME_WIDTH, StringHunt.FRAME_HEIGHT);
+	creditsPanel.setBounds(
+		0, 
+		0, 
+		StringHunt.FRAME_WIDTH, 
+		StringHunt.FRAME_HEIGHT
+	);
 	creditsPanel.setBackground(Color.decode("#ACFFFF"));
 			
 	backButton = new JButton();	

@@ -122,7 +122,7 @@ public class GameState implements ActionListener {
 
 	//letter panel
 	letterPanelConstructor = new LetterPanel();
-	letterPanelObject = letterPanelConstructor.getLetterPanel();	
+	letterPanelObject = letterPanelConstructor.getLetterPanel();
 	letterPanelObject.setBounds(
 		LETTER_PANEL_OBJECT_X, 
 		LETTER_PANEL_OBJECT_Y, 
@@ -168,7 +168,11 @@ public class GameState implements ActionListener {
 	scenePanel.add(enemyHealthLabel);
 		
 	//timer
-	timer = new JLabel(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60));
+	timer = new JLabel(
+		String.valueOf(currentTime/60) +
+		":" +
+		String.valueOf(currentTime%60)
+	);
 	timer.setBounds(TIMER_X, TIMER_Y, TIMER_WIDTH, TIMER_HEIGHT);
 	timer.setFont(new Font("Arial", Font.BOLD, 18));
 	timer.setForeground(Color.WHITE);
@@ -194,7 +198,9 @@ public class GameState implements ActionListener {
 	);
 	textField.setFont(new Font("Arial", Font.BOLD, 18));
 	textField.setEditable(false);
-	textField.setBorder(BorderFactory.createLineBorder(Color.decode("#2C6791")));
+	textField.setBorder(
+		BorderFactory.createLineBorder(Color.decode("#2C6791"))
+	);
 	textField.addActionListener(this);
 	textField.setText(null);
 		
@@ -209,7 +215,9 @@ public class GameState implements ActionListener {
 	);
 	refreshButton.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
 	refreshButton.setIcon(new ImageIcon(Assets.btn_refresh));
-	refreshButton.setPressedIcon(new ImageIcon(Assets.btn_refresh_pressed));
+	refreshButton.setPressedIcon(
+		new ImageIcon(Assets.btn_refresh_pressed)
+	);
 	//letter damage calculator 
 	ldc = new LetterDamageCalculator();
 		
@@ -255,7 +263,11 @@ public class GameState implements ActionListener {
 	}
 		
 	if(currentTime >= 0) {
-	    timer.setText(String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60)); 
+	    timer.setText(
+		    String.valueOf(currentTime/60) +
+		    ":" +
+		    String.valueOf(currentTime%60)
+	    ); 
 	}
 				
 	if(currentTime <= 0 && !isGameOver) {
@@ -315,7 +327,9 @@ public class GameState implements ActionListener {
 		);
 
 	    } else {
-		currentPlayerHealth -= ldc.calculateDamageTaken(textField.getText());
+		currentPlayerHealth -= ldc.calculateDamageTaken(
+			textField.getText()
+		);
 	    }
 		    
 	    //update health here.
@@ -356,7 +370,9 @@ public class GameState implements ActionListener {
 		//reset timer
 		currentTime = 300 + ( 180 * (currentLevel - 1));
 		timer.setText(
-			String.valueOf(currentTime/60)+":"+String.valueOf(currentTime%60)
+			String.valueOf(currentTime/60)+
+			":"+
+			String.valueOf(currentTime%60)
 		);
 		//move to the next enemy
 		//reset enemy health
@@ -382,7 +398,10 @@ public class GameState implements ActionListener {
     }
     
     public void updatePlayerHealthLabel() {
-	playerHealthLabel.setText(String.valueOf(currentPlayerHealth)+"/10 HP");
+	playerHealthLabel.setText(
+		String.valueOf(currentPlayerHealth)+
+		"/10 HP"
+	);
     }
     
     public void updateEnemyHealthLabel() {
