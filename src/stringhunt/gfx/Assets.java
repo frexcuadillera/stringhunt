@@ -82,7 +82,7 @@ public class Assets {
     public static void init() {
 	
 	//sounds
-	bg = new Sound("assets/sfx/game.wav");
+	bg = new Sound("/sfx/game.wav");
 	
 	try {
 	    bg.open();
